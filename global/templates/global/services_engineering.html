@@ -1,0 +1,72 @@
+{%  extends 'global/main.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+<style>
+    
+    #title-container {
+        border-bottom: 3px solid #FFC107;
+        
+    }
+    @media only screen and (max-width: 430px){ 
+        .display-4{
+            font-size: 3em;  
+        }
+    }
+    .border-3 {
+        border-width:3px !important;
+    }
+
+  
+    .navbar-default{
+        display:none;
+    }
+
+    @media only screen and (min-width: 1198px){
+        .jumbotron{
+        height:100vh;
+    }
+    }
+
+</style>
+
+
+<div class="full-width mt-4">
+    <div style="background:#11495F !important" class="jumbotron jumbotron-fluid m-0">
+        <div class="container text-white">
+            <div class="container text-center" id="title-container">
+                <h1 class="display-4">Engineering</h1>
+            </div>
+            <div class="row mt-4">
+                <div class="col-lg-6 text-left">
+                    <p class="lead mb-4">Designing the right shielding solution is an exact science 
+                        requiring vast knowledge and experience in all phases of shielding design, 
+                        manufacture, installation, and testing. Since the architect or builder cannot 
+                        be expected to possess all the expertise necessary, it is essential they 
+                        choose a shielding company with knowledge and experience in shielding across 
+                        the entire spectrum. Global Shielding is one such company. 
+                        In fact, we are the only designer, manufacturer, and installer of shielding 
+                        solutions which can provide "Total Spectrum Shielding" across the entire 
+                        electromagnetic spectrum. This unique edge in our market gives us the ability 
+                        to provide a range of services.
+                    </p>
+                    <h3 class="lead"><u>Engineering and Architectural Services</u></h3>
+                    <ul class="lead">
+                        <li>Physics Designs</li>
+                        <li>RF Shield Designs</li>
+                        <li>Magnetic Shielding Designs</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 text-left">
+                    <img class="mb-4 mt-2" src="{% static 'images/services_engineering.png' %}" alt="Engineering Shielding Services"  style="width: 100%;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+   
+{% endblock %}
+
+
+
+

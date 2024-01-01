@@ -1,0 +1,93 @@
+<div class="modal fade" id="pbDoorCalcModal" tabindex="-1" role="dialog" aria-labelledby="pbDoorCalcModalModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Lead Door Calculator</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+                <p>This calculator is designed to return the approximate door weight based on the input variables.
+                </p>
+                <p><small class="text-muted">
+                    Enter decimal values below (fractions will not work).
+                    </small>
+                </p>
+                    <hr>
+                <form name="doorForm">
+                    <div class="form-group">
+                        <select id="inputState" class="form-control" name="thickness">
+                            <option value="none" selected>Select Lead Thickness (in) </option>
+                            <option value="0.03125">1/32" Thick</option>
+                            <option value="0.0625">1/16" Thick</option>
+                            <option value="0.125">1/8" Thick</option>
+                            <option value="0.25">1/4" Thick</option>
+                            <option value="0.375">3/8" Thick</option>
+                            <option value="0.5">1/2" Thick</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Enter Door Width (in)" type="text" name="width" size="10">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Enter Door Height (in)" type="text" name="height" size="10">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Calculated Door Weight (lbs)" type="text" name="weight" size="10" readonly>
+                    </div>
+                    <div class="form-group">
+                        <input type="button" class="btn btn-primary m-1" value="Calculate Weight" onClick="calculateWeight()">
+                        <input type="reset" class="btn btn-secondary m-1" value="Reset" />
+                    </div>
+                </form>
+                <p><small class="text-muted">
+                    This calculator provides estimates only. Actual weights may differ slightly.
+                    </small>
+                </p>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script language="JavaScript">
+    function calculateWeight() {
+        var width = document.doorForm.width.value
+        var height = document.doorForm.height.value
+        var thickness = document.doorForm.thickness.value
+    
+        if (width > 60){
+            toastr.error('Door can not exceed 60" in width', 'Calculation Error');
+            document.doorForm.width.value = 60;
+        }
+        if (width < 10 ){
+            toastr.error('Door can not be smaller then 10" in width', 'Calculation Error');
+            document.doorForm.width.value = 10;
+        }
+        if (height > 96){
+            toastr.error('Door can not exceed 96" in height', 'Calculation Error');
+            document.doorForm.height.value = 96;
+        }
+        if (height < 80 ){
+            toastr.error('Door can not be shorter then 80" in height', 'Calculation Error');
+            document.doorForm.height.value = 80;
+        }
+        if (thickness == "none") {
+            toastr.error('Please select thickness', 'Calculation Error');
+        }
+
+        if (Number.isInteger(parseInt(width)) && Number.isInteger(parseInt(height))) {
+            weight = ((width/12) * (height/12))*((720/12)* thickness + 5.5);
+            document.doorForm.weight.value = weight.toFixed(2) + " lbs";
+            
+        }
+        else {
+            toastr.error('Door width and height need to be numbers', 'Calculation Error');
+        }
+    }
+</script>

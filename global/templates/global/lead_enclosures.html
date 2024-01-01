@@ -1,0 +1,166 @@
+{%  extends 'global/main.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+
+
+
+<style>
+
+    #title-container {
+        border-bottom: 3px solid #FFC107;
+
+    }
+
+    .border-3 {
+        border-width:3px !important;
+    }
+
+    .display-3 {
+        font-size: 2.5em;
+    }
+
+
+
+    .display-4 {
+        font-size: 2em;
+    }
+
+
+    .border-3 {
+        border-width:3px !important;
+    }
+
+    .display-4-custom{
+        font-size: 3rem;
+    }
+
+    .custom-list{
+        font-size: 1em;
+      }
+    .custom-list-header{
+        font-size: 2em;
+      }
+      
+</style>
+
+
+<!-- Back to top button -->
+<a id="button"></a>
+
+<section>
+    <div class="full-width">
+        <div style="background: none !important" class="jumbotron jumbotron-fluid m-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 text-left">
+                        <div class="container">
+                            <div class="iactiveImg mb-3" data-ii="27189"></div><script src="https://interactive-img.com/js/include.js"></script>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-left" >
+                        <div class="container">
+                            <img src="{% static 'images/synchrotron_icon.svg' %}" alt="" class="icon-background">
+                            <h1 class="display-4 display-4-custom">Beamline Shielding</h1>
+                            <p class="lead"><u>Synchrotron Hutches</u></p>
+                            <p class="card-text lead">
+                                Beamline shielded hutches are essential components in Synchrotron light source experiments that minimizing 
+                                harmful exposure to electromagnetic radiation. These shielded enclosures are custom designed and optimized 
+                                based on scattering radiation generated from beamline components.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section>
+    <div class="full-width mb-0">
+        <div style="background:#11495F !important" class="jumbotron jumbotron-fluid m-0 pb-1">
+            <div class="container text-white">
+                <div class="title-container-yellow">
+                    <h2 class="display-4" >Radiographic Enclosures</h2>
+                </div>
+                <img src="{% static 'images/radiation_icon.svg' %}" alt="" class="icon-background">
+                <div class="row">
+                    <div class="col-lg-6 text-left">
+                        <div class="iactiveImg mb-3 mt-4" data-ii="27187"></div><script src="https://interactive-img.com/js/include.js"></script>
+                    </div>
+                    <div class="col-lg-6 text-left">
+                        <h2 class="lead custom-list-header">Features and Benefits</h2>
+                        <ul class="lead custom-list">
+                            <li>Free standing structure</li>
+                            <li>Lead thickness as required</li>
+                            <li>Custom sizes available</li>
+                            <li>World wide installation</li>
+                        </ul>
+                       
+                        <div class="card text-center mt-4 mb-4 bg-primary">
+                            <div class="card-body">
+                                <p class="lead">Need a source? click the link below!</p>
+                                <div class="text-center">
+                                    <a class="btn btn-light" href="http://www.kodexray.com/index.html" target="_blank" style="width:200px;">X-Ray Systems</a>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+                <p class="lead">
+                    Prefabricated modular lead shielded enclosures consist of free standing structural steel framed panels 
+                    and one or more doors with optional control windows. Sections consist of steel-lead-steel panels fabricated 
+                    with the required thickness of sheet lead. All edges are covered by steel. All modular panels incorporate 
+                    lead joint strips.
+                </p> 
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="full-width mt-0">
+        <div style="background:#11495F !important" class="jumbotron jumbotron-fluid m-0">
+            <div class="container text-white">
+                <div class="title-container-yellow">
+                    <h2 class="display-4" >X-Ray Cabinets</h2>
+                </div>
+                <img src="{% static 'images/radiation_icon.svg' %}" alt="" class="icon-background">
+                <div class="row">
+                    <div class="col-lg-6 text-left">
+                        <div class="iactiveImg mb-3 mt-4" data-ii="27184"></div><script src="https://interactive-img.com/js/include.js"></script>
+                    </div>
+                    <div class="col-lg-6 text-left">
+                        <div class="iactiveImg mb-3 mt-4" data-ii="27186"></div><script src="https://interactive-img.com/js/include.js"></script>
+                    </div>
+                </div>
+                <p class="lead">
+                    Similar in structural design to modular enclosures but smaller in size these cabinets are used to 
+                    isolate radiation from surrounding areas. Typically used for radiation inspection of small components, 
+                    the isolation of radioisotopes or the protection of material in elevated radiation environments.
+                </p>       
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    var btn = $('#button');
+
+    $(window).scroll(function() {
+        if ($(window).scrollTop() > 500) {
+            btn.addClass('show');
+        } else {
+            btn.removeClass('show');
+        }
+    });
+
+    btn.on('click', function(e) {
+        e.preventDefault();
+        $('html, body').animate({scrollTop:0}, '500');
+    });
+</script>
+
+{% endblock %}

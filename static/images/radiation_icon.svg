@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="538px" height="574px" viewBox="0 0 538 574" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>intro/radiation_icon</title>
+    <defs>
+        <filter id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.066667 0 0 0 0 0.286275 0 0 0 0 0.372549 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g filter="url(#filter-1)" id="intro/radiation_icon">
+            <g transform="translate(0.500000, 0.500000)">
+                <path d="M260.129365,338.375893 C253.606778,337.345709 244.769063,333.914498 239.186484,330.224716 C233.694212,326.534933 226.227512,318.724413 223.050368,313.319025 C213.350637,296.758098 213.867846,274.6194 224.166884,258.82598 C228.115737,252.821362 235.841042,245.355605 241.501612,242.006481 C243.648442,240.803915 248.451102,238.747651 252.145456,237.458895 C257.810132,235.570908 260.470066,235.139955 267.936766,235.139955 C275.748271,235.139955 277.977198,235.484718 284.245285,237.713363 C293.169202,240.803915 299.864192,245.006738 305.959875,251.614692 C311.710753,257.877883 314.456889,262.511659 317.375428,271.09379 C320.638774,280.792296 320.638774,292.973915 317.375428,302.672421 C314.456889,311.254553 311.710753,315.888329 305.877779,322.15152 C294.371919,334.59992 276.519981,340.949301 260.129365,338.375893 Z" id="Path" fill="#FFFFFF"></path>
+                <ellipse id="Oval" fill="#FFFFFF" cx="69.1509054" cy="347.591422" rx="43.2193159" ry="43.2505643"></ellipse>
+                <ellipse id="Oval" fill="#FFFFFF" cx="418.687123" cy="149.179458" rx="38.3571429" ry="38.3848758"></ellipse>
+                <ellipse id="Oval" fill="#FFFFFF" cx="420.307847" cy="435.173815" rx="41.0583501" ry="41.0880361"></ellipse>
+                <ellipse id="Oval" stroke="#FFFFFF" stroke-width="17" cx="268.5" cy="286.5" rx="260" ry="98.0045147"></ellipse>
+                <ellipse id="Oval" stroke="#FFFFFF" stroke-width="17" transform="translate(268.500000, 286.500000) rotate(60.000000) translate(-268.500000, -286.500000) " cx="268.5" cy="286.5" rx="260.145598" ry="97.9468366"></ellipse>
+                <ellipse id="Oval" stroke="#FFFFFF" stroke-width="17" transform="translate(268.500000, 286.500000) scale(-1, 1) rotate(60.000000) translate(-268.500000, -286.500000) " cx="268.5" cy="286.5" rx="260.145598" ry="97.9468366"></ellipse>
+            </g>
+        </g>
+    </g>
+</svg>

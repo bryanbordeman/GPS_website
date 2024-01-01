@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="640px" height="640px" viewBox="0 0 640 640" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>straight_pipe_button</title>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="straight_pipe_button">
+            <rect id="Rectangle" fill="#1B87B0" x="0" y="0" width="640" height="640" rx="56"></rect>
+            <g id="straight_pipe" transform="translate(64.000000, 208.000000)" fill="#FFFFFF">
+                <rect id="Rectangle" x="0" y="0" width="48" height="224" rx="24"></rect>
+                <rect id="Rectangle" x="464" y="0" width="48" height="224" rx="24"></rect>
+                <rect id="Rectangle" x="72" y="24" width="368" height="176"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,97 @@
+<div class="modal fade" id="rfWindowCalcModal" tabindex="-1" role="dialog" aria-labelledby="rfWindowCalcModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">RF Window Calculator</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+                <p>Try our window calculator. This calculator is designed to return the maximum allowed 
+                    window height without the addition of a mullion. Enter your width below and let the 
+                    calculator determine the maximum height.
+                </p>
+                <p>
+                    <small class="text-muted">
+                    Enter decimal values below (fractions will not work).
+                    </small>
+                </p>
+                    <hr>
+                <form name="windowForm">
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Enter Window Width (in)" type="number" id="width" name="width" size="10">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Calculated Max Window Height (in)" type="text" id="max_height" size="10" readonly>
+                    </div>
+                    <div class="form-group">
+                        <input type="button"  class="btn btn-primary m-1" value="Calculate Max Height" onClick="windowCalcFunction()">
+                        <input type="reset" class="btn btn-secondary m-1" value="Reset" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script language="JavaScript">
+    function windowCalcFunction() {
+        var x = parseFloat (document.windowForm.width.value);
+        var max_allowed = 96 /* set limit */
+        var max_height = document.windowForm.max_height.value;
+        var t = ""; /* frame thickness */
+        var y = ""; /* height */
+        var a = 71.5638;
+        var b = 336.3814;
+
+        /* check max limit width*/
+        if (x > max_allowed) {
+            document.windowForm.max_height.value = "Out of range";
+            toastr.error('Out of range', 'Calculation Error');
+        }
+
+        else {
+            /* check frame width*/
+            if (x >= 48){
+                t = 6;
+                }
+            else { 
+                t = 4.25;
+                }
+            x += t;
+
+            /* check max height*/
+            y = b - (x/ Math.tan((Math.atan(a/b))));
+
+            if (y < x) {
+                y = a - (x/ Math.tan((Math.atan(b/a))));
+            }
+
+            if (y > max_allowed){
+                y = max_allowed + t;
+            }
+
+            if (y < 0) {
+                document.windowForm.max_height.value = "Out of range";
+                toastr.error('Out of range', 'Calculation Error');
+            }
+    
+            else if(isNaN(x)){
+                document.windowForm.max_height.value = "Invalid entry, enter must be a number";
+                toastr.error('Invalid entry, enter must be a number', 'Calculation Error');
+            }
+            
+            else {
+                document.windowForm.max_height.value = "Max Clear Height = " + (y-(t)).toFixed(2) + "in";
+            }
+            }
+    }
+</script>

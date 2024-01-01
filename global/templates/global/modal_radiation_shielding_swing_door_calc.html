@@ -1,0 +1,59 @@
+{% load static %}
+
+
+<div class="modal fade" id="swingDoorCalcModal" tabindex="-1" role="dialog" aria-labelledby="swingDoorCalcModalLabel" aria-hidden="true">
+    <div class="modal-dialog model-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Swing Door <small class="text-muted"> | calculator</small></h5>
+                <button type="button" onclick="clearCalc()" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h5><u>Door Leaf Physical Properties</u></h5>
+                <div class="row pl-3 pr-3">
+                    <div class="col text-center" style="border-right:2px solid #1b87b0; border-bottom:2px solid #1b87b0;">
+                        <p class="mt-1 mb-0">Weight (F)</p>
+                        <p class="m-0" id="weight"></p>
+                        <img class="w-50 mb-2" src="{% static 'images/weight_icon.svg' %}">
+                    </div>
+                    <div class="col text-center" style="border-bottom:2px solid #1b87b0;">
+                        <p class="mt-1 mb-0">Width (W)</p>
+                        <p class="m-0" id="width"></p>
+                        <img class="w-50 mt-2" src="{% static 'images/width_icon.svg' %}">
+                    </div>
+                </div>
+                <div class="row  pl-3 pr-3">
+                    <div class="col text-center" style="border-right:2px solid #1b87b0;">
+                        <p class="mt-1 mb-0" >Height (H)</p>
+                        <p class="m-0" id="height" ></p>
+                        <img class="w-50 mb-2" src="{% static 'images/height_icon.svg' %}">
+                    </div>
+                    <div class="col text-center">
+                        <p class="mt-1 mb-0">Thickness (T)</p>
+                        <p class="m-0" id="thickness"></p>
+                        <img class="w-50 mt-2" src="{% static 'images/thickness_icon.svg' %}">
+                    </div>
+                </div>
+                <hr>
+                <h5><u>Door Data</u></h5>
+                <p class="m-0" id="radial_load"></p>
+                <p class="m-0" id="ansi_closing_time"></p>
+                <hr>
+                <h5><u>Hardware Specifications</u></h5>
+                <p class="m-0" ><a href="https://catalog.bfimfg.com/item/hinges-series-w/eered-high-capacity-full-surface-adjustable-hinges/w200-hd" target=”_blank” id="hinge"></a></p>
+                <p class="m-0" ><a href="https://catalog.bfimfg.com/viewitems/door-operators/series-nb-2000-swinging-door-operator" target=”_blank” id="operator"></a></p>
+                <hr>
+                <h5><u>Shielding Specifications</u></h5>
+                <p class="m-0" id="lead"></p>
+                <p class="m-0" id="bpe"></p>
+
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-primary mr-3 ml-3" href="{% url 'request_quote' %}">Request A Quote</a>
+                <button type="button" onclick="clearCalc()" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

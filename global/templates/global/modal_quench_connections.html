@@ -1,0 +1,62 @@
+{% load static %}
+
+<style>
+    .custom-list::before{
+        content:attr(aria-label);
+        font-size:110%;
+        margin-left:-25px;
+    }
+</style>
+<div class="modal fade" id="quenchConnectionsModal" tabindex="-1" role="dialog" aria-labelledby="quenchConnectionsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Quench Vent <small class="text-muted"> | Connection Options</small></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#flanged" aria-controls="flanged" role="tab" data-toggle="tab" aria-selected="true">Option 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#welded" aria-controls="welded" role="tab" data-toggle="tab">Option 2</a>
+                    </li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content mt-3">
+                    <div role="tabpanel" class="tab-pane active" id="flanged">
+                        <div class="container">
+                            <h3 class="card-title" id="title-container">Flanged Connection</h3>
+                            <ul class="lead custom-list" aria-label="Advantages">
+                                <li>Reduced installation time</li>
+                                <li>Reduced installation cost</li>
+                            </ul>
+                            <img class="w-100" src="{% static 'images/flanged_seam.png' %}">
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="welded">
+                        <div class="container">
+                        <h3 class="card-title" id="title-container">Welded Connection</h3>
+                        <ul class="lead custom-list" aria-label="Advantages">
+                            <li>Reduced material cost</li>
+                            <li>Components can be easily field modified</li>
+                        </ul>
+                        <img class="w-100" src="{% static 'images/welded_seam.png' %}">
+                    </div>
+                    
+                    </div>
+                </div>
+            </div>
+    
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

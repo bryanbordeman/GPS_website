@@ -1,0 +1,104 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{page_title}} | Global Shielding</title>
+    {%  include 'global/style_imports.html' %}
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <meta name="description" content="Global Shielding offers innovative solutions for your shielding needs. We can help to find the right solution for your application."/>
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="emi shielding, radiation shielding, lead shielding, rf shielding, magnetic shielding, x-ray shielding, linear accelerator, quench vent, rf chamber, mri shielding, rf cabinets, tapered chamber, anechoic chambers" />
+    <meta property="og:description" content="Global Shielding offers innovative solutions for your shielding needs. We can help to find the right solution for your application." />
+    <meta property="og:url" content="https://www.global-sheilding.com/" />
+    <meta property="og:site_name" content="Global Shielding" />
+</head>
+
+<body>
+    <style>
+        .toast {
+            opacity: 1 !important;
+        }
+        
+    </style>
+    <script>
+        toastr.options = {
+            tapToDismiss: true
+            , closeButton: true
+            , tapToDismiss: true
+            , progressBar: true
+            , positionClass: 'toast-top-full-width'
+           
+        }
+    </script>
+    {%  include 'global/navbar.html' %}
+   
+        
+	{% block content %}
+
+	{% endblock %}
+ 
+
+	<a class="call-button text-center fixed-bottom" href="tel:+1-201-212-5138" ><i class="fas fa-phone"></i> &nbsp;Click to Call</a>
+
+	<footer class="footer" style="background:#11495F !important">
+		<small class="d-block p-3 ml-3 text-white" style="background:#11495F !important">&copy; Copyright 2024 Global Partners in Shielding, Inc.</small>
+	</footer>
+	
+	
+</body>
+<!-- toast -->
+{% if messages %}
+    {% for message in messages %}
+        {% if message.tags == 'success'%}
+            <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+        {% elif message.tags == 'info' %}
+            <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+        {% elif message.tags == 'warning' %}
+            <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+        {% elif message.tags == 'error' %}
+            <script type=text/javascript>toastr.{{ message.tags }}('{{ message }}')</script>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+<!-- toast -->
+
+
+<!-- lightbox -->
+<script>
+    $(document).delegate('*[data-toggle="lightbox"]', 'click', function (event){
+        event.preventDefault();
+        $(this).ekkoLightbox();
+    }); 
+</script>
+<!-- lightbox -->
+
+<!-- charts.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+
+<!-- close screen event -->
+<!-- <script>
+    var addEvent = function(obj, evt, fn) {
+        if (obj.addEventListener) {
+          obj.addEventListener(evt, fn, false);
+        }
+        else if (obj.attachEvent) {
+          obj.attachEvent("on" + evt, fn);
+        }
+      };
+      
+      addEvent(document, "mouseout", function(event) {
+        event = event ? event : window.event;
+        var from = event.relatedTarget || event.toElement;
+        if ( (!from || from.nodeName == "HTML") && event.clientY <= 100 ) {
+          alert("left top bar");
+        }
+      });
+</script> -->
+<!-- close screen event -->
+
+
+</html>

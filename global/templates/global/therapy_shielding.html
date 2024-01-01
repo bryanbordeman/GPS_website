@@ -1,0 +1,199 @@
+{%  extends 'global/main.html' %}
+{% load static %}
+{% block content %}
+{% include "global/modal_therapy_sliding_door_features.html" %}
+{% include "global/modal_therapy_swing_door_features.html" %}
+{% include "global/modal_radiation_shielding_swing_door_calc.html" %}
+
+<style>
+    
+    @media only screen and (max-width: 450px){
+        .display-4 {
+            font-size: 1.25em;
+        }
+
+    }
+    @media not all and (max-width: 450px) {
+    .display-4 {
+        font-size: 2em;
+    }
+    }
+    .navbar-default{
+        display:none;
+    }
+
+    .border-3 {
+        border-width:3px !important;
+    }
+    .custom-section-button{
+        position: absolute;
+        top:10px;
+        right:10px;
+        z-index: 50;
+
+      }
+
+    @media only screen and (max-width: 400px){
+        .custom-section-button{
+          top:60px;
+        }
+      }
+  
+</style>
+
+
+<!-- Back to top button -->
+<a id="button"></a>
+
+<section id="room-type" >
+    <div class="full-width mt-4 mb-0">
+        <div style="background:#11495F !important" class="jumbotron jumbotron-fluid m-0 pb-1">
+            <div class="container" >
+                <div class="row mt-4">
+                    <div class="col-lg-6 text-left text-white">
+                        <div class="title-container-yellow">
+                            <h2 class="display-4 mb-4" style="font-size: 2em;" >Radiation Sliding Door</h2>
+                        </div>
+                        <img src="{% static 'images/radiation_icon.svg' %}" alt="" class="icon-background">
+                        <div class="container">
+                            <div class="iactiveImg mb-4" data-ii="26263"></div><script src="https://interactive-img.com/js/include.js"></script>
+                        </div>
+                        <div class="lead">
+                            <p> Our Radiation Therapy Sliding Door is a state-of-the-art electric operating system and top mounted
+                                linear motion system for ease of opening and closing.  These doors are made up from lead & concrete
+                                ranging anywhere from 1,000 lbs to 30,000 lbs. There is a battery backup system and emergency
+                                disconnect features.
+                            </p>
+                        </div>
+                        <button type="button" class="btn btn-warning mt-1 mb-4" data-toggle="modal" data-target="#slidingFeaturesModal">
+                            Features <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div class="col-lg-6 text-left text-white">
+                        <div class="title-container-yellow">
+                            <h2 class="display-4 mb-4" style="font-size: 2em;">Radiation Swing Door</h2>
+                        </div>
+                        <img src="{% static 'images/radiation_icon.svg' %}" alt=""  class="icon-background">
+                        <div class="container">
+                            <div class="iactiveImg mb-4" data-ii="26264"></div><script src="https://interactive-img.com/js/include.js"></script>
+                        </div>
+                        <div class="lead">
+                            <p>Our Radiation Therapy Swing Doors are designed to withstand all loads without deflection that might
+                                inhibit operation or impair radiation protection. Doors are equipped with a Brookfield operating
+                                system which is fully compliant with UL 325 and ANSI 156.10 for swing doors weighing up to 20,000 lbs.
+                                Doors are mounted to the frame with (2) Two HD Brookfield hinges. All of our doors are supplied
+                                with a primer coat for finish by others.
+                            </p>
+                        </div>
+                        <button type="button" class="btn btn-warning mt-1 mb-2" data-toggle="modal" data-target="#swingFeaturesModal">
+                            Features <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+</section>
+<section id="calculator">
+    <div class="full-width mt-0">
+        <div style="background:#11495F !important" class="jumbotron jumbotron-fluid m-0 pt-1">
+            <div class="container text-white">
+                <h1 class="display-4" style="font-size: 2em;">Swing Door Calculator</h1>
+                <p class="lead mb-4">Try our Swing Door calculator. This calculator is designed to
+                    return specific door data based on shielding requirements and 48" x 84" clear opening. Simply enter your shielding criteria and let the calculator
+                    do its magic.
+                </p>
+                <div class="row">
+                    <div class="col-lg-4 text-left">
+                        <div class="card border-primary p-2 mb-4" style="background:#11495F !important">
+                            <form>
+                                <p>Enter Shielding Thickness below (Inch):</p>
+                                <input placeholder="Lead" class="form-control" type="number" id="pbThickness" name="pbThickness"><br>
+                                <input placeholder="5% borated polyethylene (BPE)" class="form-control" type="number" id="bpeThickness" name="bpeThickness">
+                            </form>
+                            <button type="button" class="btn btn-primary mt-4 mb-4" onclick="calculate()">
+                                Calculate
+                            </button>
+                            <p>
+                                <small class="muted-text">We work hard to ensure that the results presented by this calculator are correct
+                                and accurate based on the user-supplied data. However, this calculator is designed to
+                                be an informational tool only. We strongly recommend consulting an engineer before using this data.
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 text-left">
+                        <div class="iactiveImg" data-ii="27849"></div><script src="https://interactive-img.com/js/include.js"></script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function calculate(){
+        var pbThickness = document.getElementById("pbThickness").value;
+        var bpeThickness = document.getElementById("bpeThickness").value;
+
+        switch (true) {
+            case pbThickness === "" && bpeThickness === "":
+                toastr.error('Enter Shielding Thickness', 'Calculation Error');
+                break;
+            default:
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'radDoorCalc' %}",
+                    data: { csrfmiddlewaretoken: '{{ csrf_token }}', pbThickness: pbThickness , bpeThickness: bpeThickness},
+                    success: function callback(data_response){
+                                json_data = JSON.parse(data_response);
+                                $('#hinge').append('Hinge = ' + json_data.hinge); 
+                                $('#operator').append('Operator = ' + json_data.operator); 
+                                $('#width').append(json_data.width + '"'); 
+                                $('#height').append(json_data.height + '"'); 
+                                $('#thickness').append(json_data.thickness + '"'); 
+                                $('#weight').append(json_data.weight + ' lbs');
+                                $('#radial_load').append('Max radial load =  ' + json_data.radial_load + ' lbs');
+                                $('#ansi_closing_time').append('ANSI 156.10 (Open/ Close) time = ' + json_data.ansi_closing_time + ' sec');
+                                $('#lead').append('Lead = ' + json_data.lead + '"' + ' (' + json_data.lead_weight + ' lbs)');
+                                $('#bpe').append('5% borated polyethylene (BPE) = ' + json_data.bpe + '"');
+
+                                
+                                /* Set global var to send to request quote page */
+                                localStorage.setItem("request", json_data.request); 
+                                
+                                if (json_data.hinge != 'No hinge available. Exceeds maximum weight limit of this calculator'){
+                                    $('#swingDoorCalcModal').modal('show');
+                                }
+                                else {
+                                    toastr.error('Exceeds maximum weight limit of this calculator', 'Calculation Error');
+                                    clearCalc()
+                                }
+                                
+                    }
+                });
+        }}
+
+    function clearCalc() {
+        $("#hinge").html("");
+        $("#operator").html("");
+        $("#width").html("");
+        $("#height").html("");
+        $("#thickness").html("");
+        $("#weight").html("");
+        $("#lead").html("");
+        $("#bpe").html("");
+        $("#radial_load").html("");
+        $("#ansi_closing_time").html("");
+       
+    }
+</script>
+<script>
+    $('#swingDoorCalcModal').on('hidden.bs.modal', function (e) {
+        clearCalc();
+    })
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,473 @@
+{%  extends 'global/main.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% include "global/modal_rf_double_door_touch_screen.html" %}
+{% include "global/modal_rf_honeycomb_chamber_data.html" %}
+{% include "global/modal_rf_chamber_door_edge.html" %}
+{% include "global/modal_power_filter_data.html" %}
+
+<style>
+    .carousel-caption {
+        position: relative;
+        left: 0;
+        top: 0;
+    }
+
+    .carousel-indicators li {
+        width: 18px;
+        max-width: 18px;
+        height: 18px;
+        max-height: 18px;
+        margin: 3px;
+        background-color: none;
+        border: 2px solid #11495F;
+        border-radius: 100%;
+        opacity: .5;
+        transition: all .3s;
+      }
+      
+    .carousel-indicators li.active,
+    .carousel-indicators li:hover {
+        opacity: .9;
+        background-color: #1b87b0;
+    }
+
+    .carousel-control-next-icon,
+    .carousel-control-prev-icon {
+        width: 40px;
+        height: 40px;
+        filter: invert(50%);
+    }
+</style>
+
+<style>
+
+    #title-container {
+        border-bottom: 3px solid #FFC107;
+
+    }
+
+    .border-3 {
+        border-width:3px !important;
+    }
+
+    .display-3 {
+        font-size: 2.5em;
+    }
+
+
+
+    .display-4 {
+        font-size: 2em;
+    }
+
+
+    .border-3 {
+        border-width:3px !important;
+    }
+
+    .display-4-custom{
+        font-size: 3rem;
+    }
+    .custom-list{
+        font-size: 1em;
+      }
+      .custom-list-header{
+        font-size: 2em;
+      }
+   
+</style>
+
+
+
+<!-- Back to top button -->
+<a id="button"></a>
+
+<section>
+    <div class="full-width">
+        <div style="background: none !important" class="jumbotron jumbotron-fluid m-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 text-left">
+                        <div class="container">
+                            <img class="mb-2" style="width:100%" src="{% static 'images/chamber_header.jpeg' %}" alt="RF Chamber" >
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-left" >
+                        <div class="container">
+                            <h1 class="display-4 display-4-custom">Reliable Testing Environments</h1>
+                            <p class="lead">We can help to find the right solution for your application.</p>
+                            <a class="btn btn-primary mt-3 mb-4" href="{% url 'request_quote' %}" style="width:200px">Get Started</a>
+                            <h3 class="lead" style="font-size: 1.5em;"><u>Testing Standards</u></h3>
+                            <ul class="lead" style="font-size: 1em;">
+                                <li>IEEE 299 Standard</li>
+                                <li>NSA 65-6</li>
+                                <li>MIL STD-285</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section>
+    <div class="full-width mb-0">
+        <div style="background:#11495F !important" class="jumbotron jumbotron-fluid pt-4 m-0 pb-1">
+            <div class="container text-white">
+                <div class="title-container-yellow">
+                    <h2 class="display-4" >Chambers</h2>
+                </div>
+                <div class="row">
+                    <img src="{% static 'images/mircowave_icon.svg' %}" alt="" class="icon-background">
+                    <div class="col-lg-6 text-left">
+                        <div class="iactiveImg mb-3 mt-4" data-ii="26930"></div><script src="https://interactive-img.com/js/include.js"></script>
+                    </div>
+                    <div class="col-lg-6 text-left">
+                        <div class="card border-primary mt-4 mb-4 p-1 text-center" style="background:#11495F !important">
+                            <h3 class="lead lead" style="font-size: 1.5em;"><u>Shielding Performance</u></h3>
+                            <p class="card-text lead custom-list">
+                            Plane Wave: >100dB from 50MHz to 18GHz *</p>
+                        </div>
+
+                        <h2 class="lead custom-list-header">Typical Applications</h2>
+                        <ul class="lead custom-list">
+                            <li>Academic</li>
+                            <li>Aerospace & Aviation</li>
+                            <li>Automotive</li>
+                            <li>Commercial</li>
+                            <li>Defense & Government</li>
+                            <li>Electronics (Consumer, Industrial, Power)</li>
+                            <li>Research & Development</li>
+                            <li>Telecommunications</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <p class="lead">
+                    The high-spec modular structure is traditionally used for high performance shielding. Panels are galvanized
+                    sheet steel bonded to a wood core that are attached via framing joints. The RF panel system is typically
+                    selfsupported via Unistrut so no attachment to a parent wall or to a slab above is required.
+                </p>
+                <p><small>* 40GHz option available up to 80dB of attenuation</small></p>
+            </div>
+        </div>
+    </div>
+            
+    <div class="full-width mt-0">
+        <div style="background:#11495F !important" class="jumbotron jumbotron-fluid m-0 pt-2 pb-1">
+            <div class="container text-white">
+                
+                <div class="title-container-yellow">
+                    <h2 class="display-4" >Tapered Chamber</h2>
+                </div>
+                <img src="{% static 'images/mircowave_icon.svg' %}" alt="" class="icon-background">
+                <div class="iactiveImg mb-4 mt-4" data-ii="26901"></div><script src="https://interactive-img.com/js/include.js"></script>
+                <div class="row">
+                  
+                    <div class="col-lg-6 text-left">
+                        <div class="card border-primary mt-4 mb-4 p-1 text-center" style="background:#11495F !important">
+                            <h3 class="lead lead" style="font-size: 1.5em;"><u>Shielding Performance</u></h3>
+                            <p class="card-text lead custom-list">
+                            Plane Wave: >100dB from 50MHz to 18GHz *</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="lead">
+                    A function of RF construction is to create a noise free environment to retain RF signals inside of the shielded
+                    environment. To complete the RF shielded environment, all accessories and facilities associated with the
+                    enclosure will meet or exceed the minimum functional requirements (as listed below). This includes but is not
+                    limited to the entire six-sided RF enclosure, the RF door, waveguides for HVAC and/or piping, and RF filters
+                    for electrical.
+                    The Tapered Chamber creates a noise free environment to allow for performance of VHF/UHF
+                    measurements. They work extremely well for high-specification requirements.
+                </p>
+                <p><small>* 40GHz option available up to 80dB of attenuation</small></p>
+            </div>
+        </div>
+    </div>
+            
+    <div class="full-width mt-0">
+        <div style="background:#11495F !important" class="jumbotron jumbotron-fluid m-0 pt-2 pb-1">
+            <div class="container text-white">
+                
+                <div class="title-container-yellow">
+                    <h2 class="display-4" >RF Mobile Cabinets</h2>
+                </div>
+
+                <div class="row">
+                    <img src="{% static 'images/mircowave_icon.svg' %}" alt="" class="icon-background">
+                    <div class="col-lg-6 text-left">
+                        <div class="iactiveImg m-2 mt-4" data-ii="26899"></div><script src="https://interactive-img.com/js/include.js"></script>
+                    </div>
+                    <div class="col-lg-6 text-left">
+                        <div class="card border-primary mt-4 mb-4 p-1 text-center" style="background:#11495F !important">
+                            <h3 class="lead lead" style="font-size: 1.5em;"><u>Shielding Performance</u></h3>
+                            <p class="card-text lead custom-list">
+                            Plane Wave: >100dB from 50MHz to 18GHz *</p>
+                        </div>
+
+                        <h2 class="lead custom-list-header">Typical Applications</h2>
+                        <ul class="lead custom-list">
+                            <li>Wireless device testing</li>
+                            <li>EMC Testing</li>
+                            <li>Research & Development</li>
+                            <li>5G device testing</li>
+                            <li>IoT device testing</li>
+                            <li>Bluetooth device testing</li>
+                            <li>RFID device testing</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="lead">
+                    Our custom, turn-key RF Cabinets are used to test smaller pieces of equipment and can achieve remarkable
+                    shielding attenuation. Cabinets can be designed to any size and will include at least one state-of-the-art,
+                    high-spec labyrinth door. Enclosure penetrations can also be customized to suit the customers’
+                    needs and requirements.
+                </p>
+                <p><small>* 40GHz option available up to 80dB of attenuation</small></p>
+            </div>
+        </div>
+    </div>        
+    <div class="full-width mt-0">
+        <div style="background:#11495F !important" class="jumbotron jumbotron-fluid m-0 pt-2 pb-1">
+            <div class="container text-white">
+                <div class="row">
+                    <div class="col-lg-6 text-left">
+                        <div class="title-container-yellow">
+                            <h2 class="display-4" >RF Swing Door</h2>
+                        </div>
+                        <img src="{% static 'images/mircowave_icon.svg' %}" alt="" class="icon-background">
+
+                        <div id="rf_door_black" class="container">
+                            <div class="iactiveImg mt-4" data-ii="26807"></div><script src="https://interactive-img.com/js/include.js"></script>
+                        </div>
+                        <div id="rf_door_red" class="container" style="display: none;">
+                            <div class="iactiveImg mt-4" data-ii="27005"></div><script src="https://interactive-img.com/js/include.js"></script>
+                        </div>
+                        <div id="rf_door_blue" class="container" style="display: none;">
+                            <div class="iactiveImg mt-4" data-ii="27006"></div><script src="https://interactive-img.com/js/include.js"></script>
+                        </div>
+                        <div id="rf_door_silver" class="container" style="display: none;">
+                            <div class="iactiveImg mt-4" data-ii="27007"></div><script src="https://interactive-img.com/js/include.js"></script>
+                        </div>
+
+                        <!-- <button type="button" class="btn btn-warning mt-1 mb-4" data-toggle="modal" data-target="#rfDoorEdgeModal">Edge Options</button> -->
+                        
+                        <div class="m-2">
+                            <div class="custom-radios">
+                                <div>
+                                    <input type="radio" id="color-1" name="color" value="color-1" checked onchange='check_value()'>
+                                    <label for="color-1">
+                                    <span>
+                                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
+                                    </span>
+                                    </label>
+                                </div>
+
+                                <div>
+                                    <input type="radio" id="color-2" name="color" value="color-2" onchange='check_value()'>
+                                    <label for="color-2">
+                                    <span>
+                                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
+                                    </span>
+                                    </label>
+                                </div>
+
+                                <div>
+                                    <input type="radio" id="color-3" name="color" value="color-3" onchange='check_value()'>
+                                    <label for="color-3">
+                                    <span>
+                                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
+                                    </span>
+                                    </label>
+                                </div>
+
+                                <div>
+                                    <input type="radio" id="color-4" name="color" value="color-4" onchange='check_value()'>
+                                    <label for="color-4">
+                                    <span>
+                                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/242518/check-icn.svg" alt="Checked Icon" />
+                                    </span>
+                                    </label>
+                                </div>
+
+                                <div>
+                                    <p class="lead ml-1" id="color-label">Black Anodized</p>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <p class="lead">
+                            Our State-of-the-Art, High-Spec RF Swing door is designed for industrial environments. The door leaf and frame are made
+                            from heavy duty galvanized steel. Notable features include Fabric-Over-Foam gaskets and our custom labyrinth contact
+                            surface which provides a durable and reliable door with minimal maintenance.
+                        </p>
+                        <p><small>Doors are designed to match enclosure performance.</small></p>
+                    
+                    </div>
+
+                    <div class="col-lg-6 text-left">
+                        <div class="title-container-yellow">
+                            <h2 class="display-4" >RF Double Door</h2>
+                        </div>
+                        <img src="{% static 'images/mircowave_icon.svg' %}" alt="" class="icon-background">
+                        <div class="container">
+                            <div class="iactiveImg mb-4 mt-4" data-ii="26875"></div><script src="https://interactive-img.com/js/include.js"></script>
+                        </div>
+                        <button type="button" class="btn btn-warning mt-1 mb-4" data-toggle="modal" data-target="#rfChamberTouchModal">Access Control</button>
+                        </button>
+                        <p class="lead">
+                            Similar to our Personnel Door design, the High-Spec RF Double Door provides the same shielding attenuation
+                            as the single leaf option, but with enhanced mechanical operation. Notable features include a state-of-the-art
+                            automatic latching mechanism to ensure a complete RF seal.
+                        </p>
+                        <ul class="lead custom-list">
+                            <li>Plug-and-Play electric automation. <p class="m-0 text-warning"><strong>NO COMPRESSOR REQUIRED.</strong></p></li>
+                            <li>Clear opening with no mullion required</li>
+                            <li>Both leafs are active and provide Fully Automatic operation.</li>
+                            <li>Full integration with most Fire detection and suppression system</li>
+                        </ul>
+                        <p><small>Doors are designed to match enclosure performance.</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            
+    <div class="full-width mt-0">
+        <div style="background:#11495F !important" class="jumbotron jumbotron-fluid m-0 pt-2 pb-1">
+            <div class="container text-white">
+                
+                <div class="row">
+                    <div class="col-lg-6 text-left">
+                        <div class="title-container-yellow">
+                            <h2 class="display-4" >RF Waveguide</h2>
+                        </div>
+                        <img src="{% static 'images/mircowave_icon.svg' %}" alt="" class="icon-background">
+                        <div class="container">
+                            <div class="iactiveImg mb-4 mt-4" data-ii="26978"></div><script src="https://interactive-img.com/js/include.js"></script>
+                        </div>
+                        <button type="button" class="btn btn-warning mt-1 mb-4" data-toggle="modal" data-target="#rfHoneycombChamberModal">
+                            Honeycomb Data <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <p class="lead">
+                            Mechanical penetrations such as ventilation panels can easily be designed to maintain the shielding effectiveness 
+                            of the enclosure. This is accomplished by maintaining their thickness to width dimensions at a ratio of 4:1 or 
+                            greater. Penetrations designed in this manner function as a “waveguide below cutoff.” In effect, their physical 
+                            design "guides" the electromagnetic wave so that it becomes “cut-off” reduced or attenuated by being reflected 
+                            or absorbed while attempting to pass through the opening.
+                        </p>
+                            
+                    </div>
+                
+                    <div class="col-lg-6 text-left">
+                        <div class="title-container-yellow">
+                            <h2 class="display-4" >RF Power Filter</h2>
+                        </div>
+                        <img src="{% static 'images/mircowave_icon.svg' %}" alt="" class="icon-background">
+                        <div class="container">
+                            <div class="iactiveImg mb-4 mt-4" data-ii="25692"></div><script src="https://interactive-img.com/js/include.js"></script>
+                        </div>
+                        <button type="button" class="btn btn-warning mt-1 mb-4" data-toggle="modal" data-target="#powerFilterModal">
+                            Filter Data <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <p class="lead">
+                            Every  conductor which penetrates the enclosure, including neutral and signal return lines must be filtered. 
+                            Selection of a power line filter depends on many factors (voltage, current, 1 phase, 3 phase power 
+                            consumption, etc.) Signal  line filters must be selected in accordance with the type of signal being
+                            filtered (digital, analog, clock). There are no set rules for filter selection.  Each wire entering or 
+                            leaving a shielded area must be analyzed and categorized  for its particular characteristics before a filter 
+                            can be specified. It should be emphasized that the shielding of an enclosure can be completely compromised 
+                            by the selection of improper filters. Therefore, it advisable to consult with an  expert or manufacturer 
+                            before attempting to select specific filter(s). 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script language=javascript type=text/javascript>
+    function check_value(){
+       var colorValue = $("input:radio[name=color]:checked").val();
+
+    switch(colorValue){
+        case "color-1":
+           document.getElementById("color-label").innerHTML = 'Black Anodized';
+           document.getElementById("rf_door_black").style.display = "block";
+           document.getElementById("rf_door_red").style.display = "none";
+           document.getElementById("rf_door_blue").style.display = "none";
+           document.getElementById("rf_door_silver").style.display = "none";
+
+
+         break;
+        case "color-2":
+            document.getElementById("color-label").innerHTML = 'Blue Anodized';
+            document.getElementById("rf_door_black").style.display = "none";
+            document.getElementById("rf_door_red").style.display = "none";
+            document.getElementById("rf_door_blue").style.display = "block";
+            document.getElementById("rf_door_silver").style.display = "none";
+            break;
+        case "color-3":
+            console.log("silver");
+            document.getElementById("color-label").innerHTML = 'Silver Anodized';
+            document.getElementById("rf_door_black").style.display = "none";
+            document.getElementById("rf_door_red").style.display = "none";
+            document.getElementById("rf_door_blue").style.display = "none";
+            document.getElementById("rf_door_silver").style.display = "block";
+            break;
+        case "color-4":
+            document.getElementById("color-label").innerHTML = 'Red Anodized';
+            document.getElementById("rf_door_black").style.display = "none";
+            document.getElementById("rf_door_red").style.display = "block";
+            document.getElementById("rf_door_blue").style.display = "none";
+            document.getElementById("rf_door_silver").style.display = "none";
+            break;
+    }
+  }
+</script>
+
+
+<script>
+    var btn = $('#button');
+
+    $(window).scroll(function() {
+        if ($(window).scrollTop() > 500) {
+            btn.addClass('show');
+        } else {
+            btn.removeClass('show');
+        }
+    });
+
+    btn.on('click', function(e) {
+        e.preventDefault();
+        $('html, body').animate({scrollTop:0}, '500');
+    });
+</script>
+
+<script>
+    $('.carousel').on('touchstart', function(event){
+        const xClick = event.originalEvent.touches[0].pageX;
+        $(this).one('touchmove', function(event){
+            const xMove = event.originalEvent.touches[0].pageX;
+            const sensitivityInPx = 5;
+    
+            if( Math.floor(xClick - xMove) > sensitivityInPx ){
+                $(this).carousel('next');
+            }
+            else if( Math.floor(xClick - xMove) < -sensitivityInPx ){
+                $(this).carousel('prev');
+            }
+        });
+        $(this).on('touchend', function(){
+            $(this).off('touchmove');
+        });
+    });
+</script>
+
+{% endblock %}

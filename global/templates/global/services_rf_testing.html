@@ -1,0 +1,320 @@
+{%  extends 'global/main.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<style>
+    tr {
+        white-space: nowrap;
+        }
+    .thead-dark th{
+        background:#11495F !important; 
+    }
+</style>
+<style>
+    
+    #title-container {
+        border-bottom: 3px solid #FFC107;
+        
+    }
+    .testing_img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 75%;
+    }
+
+    @media only screen and (max-width: 430px){ 
+        .display-4{
+            font-size: 3em;  
+        }
+        .testing_img {
+            width: 100%;
+        }
+    }
+    .border-3 {
+        border-width:3px !important;
+    }
+
+    .graph_container{
+        display:block;
+        
+      }
+    
+
+</style>
+
+<style>
+    .wrapper{
+        position: block;
+        
+      }
+      
+      .moving-img{
+        animation: moveImg 2s ease-in-out forwards;
+      }
+      
+      @keyframes moveImg{
+        0% {
+        transform: translateX(calc(50px - 100vw));
+        }
+        10% {
+        transform: translateX(10%);
+        }
+      }
+
+      hr {
+        border: 1px solid #1b87b0;
+      }
+
+      .result_table_col {
+        min-width:100px !important;
+        max-width: 100px;
+    }
+    
+    .table-responsive thead th  {
+        white-space: normal;
+    }
+      
+</style>
+
+<div class="full-width">
+    <div style="background: none !important" class="jumbotron jumbotron-fluid m-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 text-left">
+                    <div class="container">
+                        <h1 class="display-4">Free RF Testing</h1>
+                        <p class="lead mb-0">Included with every MRI annual Door Service contract. Keep your shield at optimal performance.</p>
+                        
+                        <div class="wrapper">
+                            <div class="moving-img">
+                                <img class="testing_img" src="{% static 'images/services_testing_spectrum_analyzer.png' %}" alt="RF Testing" >
+                            </div>
+                        </div>
+
+                       
+                        
+                        
+                        <!-- <img class="testing_img" src="{% static 'images/services_testing_spectrum_analyzer.png' %}"> -->
+                        <a class="btn btn-warning mt-3 mb-4" href="{% url 'services_door' %}" style="width:150px">Door Services</a>
+
+                    </div>
+                </div>
+                <div class="col-lg-6 text-left">
+                    <div class="title-container-blue">
+                        <h1 class="display-4" style="font-size: 2em;">RF Testing</h1>
+                    </div>
+                        <img src="{% static 'images/radio_icon.svg' %}" alt="" class="icon-background">
+                        <p class="lead">
+                            MRI equipment utilizes a strong magnetic field to generate images. To obtain the optimal 
+                            performance the equipment needs minimal RF noise in the surrounding environment. 
+                            The RF noise is frequencies of radio and magnetic waves which are measured in Decibel (dB) units. 
+                            The critical frequency range for most MRI equipment is from 50 MHz to 150 MHz. 
+                            To determine the Shielding Effectiveness (SE) a series of test are performed at different 
+                            locations throughout the enclosure. These tests utilize specialized equipment to transmit and 
+                            receive RF noise at a specified frequency in accordance to set of standards specified by 
+                            the equipment vendor. 
+                        </p>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+        
+        <div class="container">
+            
+            <div class="row">
+                <div class="col-lg-6 text-left">
+                    <h3 class="lead"><u>RF Enclosure Integrity Chart</u></h3>
+                    <div class="graph_container">
+                        <canvas id="myChart" class="table" ></canvas>
+                    </div>
+                    <ol class="lead" style="font-size: .75em;">
+                        <li>Enclosure is at optimum performance</li>
+                        <li>Enclosure is at decent performance</li>
+                        <li>Enclosure is substandard (Door should be evaluated for maintenance)</li>
+                        <li>Enclosure is compromised (Should investigate for RF leaks)</li>
+                        <li>Enclosure is severely compromised (Should investigate for RF leaks, possible shield replacement)</li>
+                    </ol>
+                </div>
+                <div class="col-lg-6 text-left">
+                    
+
+                    <div class="container">
+                        <div class="table-responsive">
+                            <table class="table table-sm table-striped table-bordered text-center">
+                                <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col" class="result_table_col">Field Strength</th>
+                                    <th scope="col" class="result_table_col">Operating Frequency (MHz)</th>
+                                    <th scope="col" class="result_table_col">Wavelength (M)</th>
+                                    
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>0.3T</td>
+                                    <td>12.8</td>
+                                    <td>23.42</td>
+                                </tr>
+                                <tr>
+                                    <td>0.5T</td>
+                                    <td>21.3</td>
+                                    <td>14.07</td>
+                                </tr>
+                                <tr>
+                                    <td>1.0T</td>
+                                    <td>42.6</td>
+                                    <td>7.03</td>
+                                </tr>
+                                <tr>
+                                    <td>1.5T</td>
+                                    <td>63.9</td>
+                                    <td>4.69</td>
+                                </tr>
+                                <tr>
+                                    <td>3.0T</td>
+                                    <td>127.8</td>
+                                    <td>2.34</td>
+                                </tr>
+                                <tr>
+                                    <td>7.0T</td>
+                                    <td>298.2</td>
+                                    <td>1.00</td>
+                                </tr>
+                                
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var barOptions_stacked = {
+        
+        hover :{
+            animationDuration:10
+        },
+        scales: {
+            xAxes: [{
+                
+                ticks: {
+                    min:40,
+                    
+                },
+                scaleLabel:{
+                    display:false
+                },
+                gridLines: {
+                }, 
+                stacked: true
+            }],
+            yAxes: [{
+                gridLines: {
+                    display:false,
+                    color: "#fff",
+                    zeroLineColor: "#fff",
+                    zeroLineWidth: 0
+                },
+                
+                stacked: true
+            }]
+        },
+        legend:{
+            display:false
+        },
+        tooltips: {
+            enabled: true,
+            
+            callbacks: {
+                title: function (tooltipItem, data) { return data.labels[tooltipItem[0].index]; },
+                label: function (tooltipItem, data) {
+                    var amount = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                    if (amount > 11){
+                    return ' ' + (amount + 10) + ' dB';
+                    }
+                    
+                },
+            }
+        },
+    };
+    
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {    
+    type: 'horizontalBar',
+    data: {
+        labels: ['Excellent (1)', 'Good (2)', 'Average (3)', 'Moderate (3)', 'Poor (4)', 'Severe (5)'],
+        datasets: [{
+            label: 'Measurement (dB)',
+            data: [90, 80, 70, 60, 50, 40],
+            backgroundColor: "rgba(63,103,126,0)",
+            hoverBackgroundColor: "rgba(50,90,100,0)",
+            borderColor: [
+            'rgba(75, 192, 192, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(255, 159, 64, 1)',
+            'rgba(255, 99, 132, 1)',
+            
+            ],
+            borderWidth: {
+                
+                right: 1,
+                
+                },
+            
+            
+        },{
+
+            data: [10, 10, 10, 10, 10, 10],
+            backgroundColor: [
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 99, 132, 0.2)',
+            ],
+            borderColor: [
+            'rgba(75, 192, 192, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(255, 159, 64, 1)',
+            'rgba(255, 99, 132, 1)',
+            ],
+            borderWidth: 1,
+            
+        }]
+    },
+    
+    options: barOptions_stacked,
+    
+});
+
+// this part to make the tooltip only active on your real dataset
+var originalGetElementAtEvent = myChart.getElementAtEvent;
+myChart.getElementAtEvent = function (e) {
+    return originalGetElementAtEvent.apply(this, arguments).filter(function (e) {
+        return e._datasetIndex === 1;
+    });
+}
+
+
+</script>
+
+
+    
+{% endblock %}
+
+
+
+

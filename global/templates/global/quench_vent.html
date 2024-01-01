@@ -1,0 +1,502 @@
+{%  extends 'global/main.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% include "global/modal_quench_connections.html" %}
+{% include "global/modal_quench_component.html" %}
+{% include "global/modal_quench_exit.html" %}
+{% include "global/modal_quench_vent_calc_output.html" %}
+
+
+<style>
+
+    #title-container {
+        border-bottom: 3px solid #FFC107;
+
+    }
+    @media only screen and (max-width: 430px){
+        .display-4{
+            font-size: 3em;
+        }
+    }
+    .border-3 {
+        border-width:3px !important;
+    }
+
+</style>
+
+<style>
+
+    .triangle-container {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+      }
+    #triangle{
+        width: (right,90vw);
+        height: 40vh;
+        background-position: center;
+        background: linear-gradient(to top right, #807E7E 49.9%, #D8D8D8 50.1%);
+
+    }
+    .custom-icon-background {
+        max-width: 40%;
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        opacity: 0.1;
+      }
+
+</style>
+
+<style>
+    .lnkbtn{
+        display: block;
+
+        background-color: lightgrey;
+        border-radius: 8%;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+
+    }
+
+    /*.lnkbtn:hover{
+        background-color: #aaa;
+
+
+    .lnkbtn:visited{
+        color: blue;
+    }*/
+
+    .lnkbtn :active{
+        border: 3px solid #FFC107;
+    }
+
+</style>
+
+<!-- Back to top button -->
+<a id="button"></a>
+<div class="container text-center" id="title-container">
+    <h1 class="display-4">Quench Vent</h1>
+</div>
+<div class="full-width">
+    <div style="background: none !important" class="jumbotron jumbotron-fluid m-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 text-left">
+                    <div class="mb-4">
+                        <div class="iactiveImg mb-4" data-ii="26281"></div><script src="https://interactive-img.com/js/include.js"></script>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-left">
+                    <img src="{% static 'images/helium_icon_blue.svg' %}" alt="" class="custom-icon-background">
+                    <div class="card bg-danger mb-4">
+                        <div class="list-group m-1 text-center" >
+                            <button class="list-group-item list-group-item-action lead" data-toggle="modal" data-target="#quenchConnectionsModal">
+                                <strong>Connection Options</strong>
+                            </button>
+                            <button class="list-group-item list-group-item-action lead" data-toggle="modal" data-target="#quenchComponentModal">
+                                <strong>Component Options</strong>
+                            </button>
+                            <button class="list-group-item list-group-item-action lead" data-toggle="modal" data-target="#quenchExitModal">
+                                <strong>Exit Exhaust Options</strong>
+                            </button>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <p class="lead mb-4 mt-4">Cryogen vent systems are an essential part to a MRI’s functionality.
+                        MRI machines use liquid helium to cool down the superconductive magnet’s coil. As
+                        cryogens are released to keep the magnet cool, they evaporate into odorless, colorless,
+                        and tasteless gases and must be vented safely out of the building with the use of a
+                        cryogen vent pipe. Global Shielding specializes in the supply and installation of
+                        these pipe systems. We are familiar with the different specifications of each magnet
+                        and can assist in the design calculations before the system is installed.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="full-width">
+    <div style="background:#11495F !important" class="jumbotron jumbotron-fluid m-0">
+        <div class="container">
+            <img class="w-100 mb-4" src="{% static 'images/alum_ss_hero.svg' %}" alt="" >
+        </div>
+
+
+        <div class="container text-white">
+            <h1 class="display-4" style="font-size: 2em;">Quench Vent Calculator</h1>
+            <p class="lead mb-4">Try our quench vent calculator. This calculator is designed to
+                optimize your quench vent system. Simply enter your physical pipe criteria and let the calculator
+                determine the appropriate diameter based on OEM specifications.</p>
+        </div>
+        <div class="container text-center mb-4" id="title-container">
+
+        </div>
+        <div class="container text-white">
+            <form name="quenchForm">
+            <div class="row">
+                <div class="col-lg-6 text-left">
+                    <div class="row mb-4">
+                        <div class="col pr-1">
+                            <h4 class="h4 text-center" style="font-size: 1.25em;">Straight</h4>
+                            <a class="lnkbtn" id="btAddS" ontouchstart="" >
+                                <img class="w-100 m-0" src="{% static 'images/straight_pipe_button.svg' %}" alt="" >
+                            </a>
+                            <div class="form-group mt-3">
+                                <input class="form-control" placeholder="Length (in)" type="number" id="pipeLength" name="pipeLength" size="10">
+                            </div>
+                        </div>
+                        <div class="col ">
+                            <h4 class="h4 text-center" style="font-size: 1.25em;">90 &deg; Elbow</h4>
+                            <a class="lnkbtn" id="btAdd90" ontouchstart="">
+                                <img class="w-100 m-0" src="{% static 'images/90_deg_pipe_button.svg' %}" alt="" >
+                            </a>
+                        </div>
+                        <div class="col pl-1">
+                            <h4 class="h4 text-center" style="font-size: 1.25em;">45 &deg; Elbow</h4>
+                            <a class="lnkbtn" id="btAdd45" ontouchstart="">
+                                <img class="w-100 m-0" src="{% static 'images/45_deg_pipe_button.svg' %}" alt="" >
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <select id="magnet" class="form-control" name="magnet" onchange="updateField()">
+                                    <option value="none" selected>Magnet Vendor</option>
+                                    <option value="GE">GE</option>
+                                    <option value="Siemens" disabled>Siemens</option>
+                                    <option value="Hitachi" >Hitachi</option>
+                                    <option value="Philips" disabled>Philips</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <select id="field" class="form-control" name="field">
+                                    <option value="none" selected>Field Strength</option>
+                                    <option value="1.5T">1.5T</option>
+                                    <option value="3.0T">3.0T</option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-6 text-left">
+
+                    <div class="form-group">
+                        <!-- <textarea id="text" name="text" rows="14" readonly style="width:100%;"></textarea>  -->
+
+                        <input type="button"  id="btRemoveAll" class="btn btn-danger m-1" value="Delete All">
+                        <input type="button"  id="btRemove" class="btn btn-secondary m-1 " value="Delete Element">
+
+
+                        <div class="form-group">
+                            <div id="main">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var comp_list = [];
+    var strght_list = [];
+    $(document).ready(function() {
+
+    
+        var iCnt = 0;
+        // CREATE A "DIV" ELEMENT AND DESIGN IT USING jQuery ".css()" CLASS.
+        var container = $(document.createElement('div')).css({
+            padding: '5px', margin: '20px'
+        });
+
+        /* var container = $(document.createElement('div')).css({
+            padding: '5px', margin: '20px', border: '1px dashed',
+            borderTopColor: '#999', borderBottomColor: '#999',
+            borderLeftColor: '#999', borderRightColor: '#999'
+        }); */
+
+        $('#btAddS').click(function() {
+            if (iCnt <= 19) {
+                // GET LENGTH
+                var pipeLength = document.getElementById("pipeLength").value;
+                // ADD TEXTBOX.
+                switch (pipeLength) {
+                    case "":
+                        toastr.error('Invalid length entry', 'Calculation Error');
+                        break;
+                    case !isNaN(pipeLength) || pipeLength:
+                        toastr.error('Invalid length entry, enter must be a number', 'Calculation Error');
+                        document.getElementById("pipeLength").value = '';
+                        break;
+                    default:
+                        iCnt = iCnt + 1;
+                        comp_list.push("1");
+                        strght_list.push(pipeLength);
+                        $(container).append('<input style="width:100%;" type=text class="input bg-primary text-white" id=tb' + iCnt + ' ' +
+                            'value="' + iCnt + ' - Straight Segment ' + pipeLength + '&quot;' +' Long" />');
+                        // SHOW SUBMIT BUTTON IF ATLEAST "1" ELEMENT HAS BEEN CREATED.
+                        if (iCnt == 1) {
+                            var divSubmit = $(document.createElement('div'));
+                            $(divSubmit).append('<button id="btSubmit" onclick="calculate()" type="button" class="btn btn-primary mt-1 mb-4">Calculate</button>');
+                        }
+                        // ADD BOTH THE DIV ELEMENTS TO THE "main" CONTAINER.
+                        $('#main').after(container, divSubmit);
+                        document.getElementById("pipeLength").value = '';
+                    }
+
+            }
+            // AFTER REACHING THE SPECIFIED LIMIT, DISABLE THE "ADD" BUTTON.
+            // (20 IS THE LIMIT WE HAVE SET)
+            else {
+                $(container).append('<label>Reached the limit</label>');
+                $('#btAddS').attr('class', 'bt-disable');
+                $('#btAddS').attr('disabled', 'disabled');
+            }
+        });
+
+        $('#btAdd90').click(function() {
+            if (iCnt <= 19) {
+
+                iCnt = iCnt + 1;
+                comp_list.push("3");
+                // ADD TEXTBOX.
+                $(container).append('<input style="width:100%;" type=text class="input bg-primary text-white" id=tb' + iCnt + ' ' +
+                    'value="' + iCnt + ' - 90 &deg; Elbow" />');
+
+                // SHOW SUBMIT BUTTON IF ATLEAST "1" ELEMENT HAS BEEN CREATED.
+                if (iCnt == 1) {
+                    var divSubmit = $(document.createElement('div'));
+                    $(divSubmit).append('<button id="btSubmit" onclick="calculate()" type="button" class="btn btn-primary mt-1 mb-4">Calculate</button>');
+                }
+
+                // ADD BOTH THE DIV ELEMENTS TO THE "main" CONTAINER.
+                $('#main').after(container, divSubmit);
+            }
+            // AFTER REACHING THE SPECIFIED LIMIT, DISABLE THE "ADD" BUTTON.
+            // (20 IS THE LIMIT WE HAVE SET)
+            else {
+                $(container).append('<label>Reached the limit</label>');
+                $('#btAdd90').attr('class', 'bt-disable');
+                $('#btAdd90').attr('disabled', 'disabled');
+            }
+        });
+
+        $('#btAdd45').click(function() {
+            if (iCnt <= 19) {
+
+                iCnt = iCnt + 1;
+                comp_list.push("2");
+                // ADD TEXTBOX.
+                $(container).append('<input style="width:100%;" type=text class="input bg-primary text-white" id=tb' + iCnt + ' ' +
+                    'value="' + iCnt + ' - 45 &deg; Elbow" />');
+
+                // SHOW SUBMIT BUTTON IF ATLEAST "1" ELEMENT HAS BEEN CREATED.
+                if (iCnt == 1) {
+                    var divSubmit = $(document.createElement('div'));
+                    $(divSubmit).append('<button id="btSubmit" onclick="calculate()" type="button" class="btn btn-primary mt-1 mb-4">Calculate</button>');
+
+                }
+
+                // ADD BOTH THE DIV ELEMENTS TO THE "main" CONTAINER.
+                $('#main').after(container, divSubmit);
+            }
+            // AFTER REACHING THE SPECIFIED LIMIT, DISABLE THE "ADD" BUTTON.
+            // (20 IS THE LIMIT WE HAVE SET)
+            else {
+                $(container).append('<label>Reached the limit</label>');
+                $('#btAdd45').attr('class', 'bt-disable');
+                $('#btAdd45').attr('disabled', 'disabled');
+            }
+        });
+
+        // REMOVE ONE ELEMENT PER CLICK.
+        $('#btRemove').click(function() {
+            if (iCnt != 0) { 
+                $('#tb' + iCnt).remove(); 
+                iCnt = iCnt - 1; 
+                if (comp_list[comp_list.length - 1] == "1") {
+                    comp_list.pop();
+                    strght_list.pop();
+                }
+                else {
+                    comp_list.pop();
+                }
+            }
+
+            if (iCnt == 0) {
+                $(container)
+                    .empty()
+                    .remove();
+
+                $('#btSubmit').remove();
+                $('#btAdd')
+                    .removeAttr('disabled')
+                    .attr('class', 'bt');
+            }
+        });
+
+        // REMOVE ALL THE ELEMENTS IN THE CONTAINER.
+        $('#btRemoveAll').click(function() {
+            comp_list.length = 0;
+            strght_list.length = 0;
+            $(container)
+                .empty()
+                .remove();
+
+            $('#btSubmit').remove();
+            iCnt = 0;
+
+            $('#btAdd')
+                .removeAttr('disabled')
+                .attr('class', 'bt');
+        });
+    });
+
+    // PICK THE VALUES FROM EACH TEXTBOX WHEN "SUBMIT" BUTTON IS CLICKED.
+    var divValue, values = '';
+
+    function GetTextValue() {
+        $(divValue)
+            .empty()
+            .remove();
+
+        values = '';
+
+        $('.input').each(function() {
+            divValue = $(document.createElement('div')).css({
+                padding:'5px', width:'200px'
+            });
+            values += this.value + '<br />'
+        });
+
+        $(divValue).append('<p><b>Your selected values</b></p>' + values);
+        $('body').append(divValue);
+       
+
+    }
+
+    function calculate(){
+        var magnet = document.getElementById("magnet").value;
+        var field = document.getElementById("field").value;
+
+        switch (true) {
+            case magnet === "none":
+                toastr.error('Select Magnet Vendor', 'Calculation Error');
+                break;
+            case field === "none":
+                toastr.error('Select Field Strength', 'Calculation Error');
+                break;
+            default:
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'quenchCalc' %}",
+                    data: { csrfmiddlewaretoken: '{{ csrf_token }}', field: field , magnet: magnet, comp_list: comp_list.toString(),
+                    strght_list: strght_list.toString()},
+                    success: function callback(data_response){
+                                json_data = JSON.parse(data_response);
+                                
+                                $('#pipe_list').append(json_data.pipe_size);
+                                $('#magnet_label').append(document.getElementById('magnet').value  + ' | ' +  document.getElementById('field').value);
+
+                                /* Set global var to send to request quote page */
+                                /* localStorage.setItem("request", json_data.request); */
+                                
+                                /* check magnet type and change UI based on selection*/
+                                switch (document.getElementById('magnet').value) {
+                                    case "GE":
+                                        pressure = (json_data.pressure_drop/json_data.max_pressure)*100;
+                                        $('#pressure_drop').attr('aria-valuenow', pressure).css('width', pressure+'%');
+                                        $('#pressure_drop_label').append(json_data.pressure_drop + " mbar " + Math.round(pressure) + '%' );
+                                        $('#quenchOutModal').modal('show');
+                                        break;
+                                    case "Hitachi":
+                                        pressure = (json_data.pressure_drop);
+                                        $('#pressure_drop').attr('aria-valuenow', pressure).css('width', pressure+'%');
+                                        $('#pressure_drop_label').append('Total Percentage = ' + json_data.pressure_drop  + '%' );
+                                        $('#total_length').append(json_data.total_length);
+                                        $('#quenchOutModal').modal('show');
+                                        break;
+                                    default:
+                                        
+                                        
+                                }
+
+                                /* update progress bar color based on Percentage */
+                                switch (true){
+                                    case (pressure >= 75 && pressure < 90):
+                                        $('#pressure_drop').css('background-color', '#ffc107'); 
+                                        break;
+                                    case (pressure >= 90):
+                                        $('#pressure_drop').css('background-color', '#dc3545'); 
+                                        break;
+                                    default:
+                                        $('#pressure_drop').css('background-color', '#28a745'); 
+                                     
+                                }
+
+                            },
+                            
+                    error: function(data_response){
+                        toastr.error('Inputs exceed Calculation limits', 'Calculation Error');
+                    }
+                });
+                
+                
+        }
+
+}
+
+function clearCalc() {
+    $("#pressure_drop_label").html("");
+    $("#pipe_list").html("");
+    $("#total_length").html("");
+    $("#magnet_label").html("");
+}
+
+function updateField(){
+    var selectMagnet = document.getElementById('magnet');
+    var selectField = document.getElementById('field');
+    if (selectMagnet.value == 'Hitachi'){
+        $("#field option[value='3.0T']").remove();
+        var opt = document.createElement("option");
+        opt.value = "1.2T";
+        opt.text = "1.2T";
+        selectField.add(opt, null);
+        
+    }
+
+    if (selectMagnet.value != 'Hitachi'){
+       if (selectField[selectField.length - 1].value != "3.0T"){
+                var opt = document.createElement("option");
+                opt.value = "3.0T";
+                opt.text = "3.0T";
+                selectField.add(opt, null);
+                $("#field option[value='1.2T']").remove();
+            }
+        }
+    }
+</script>
+
+<script>
+    $('#quenchOutModal').on('hidden.bs.modal', function (e) {
+        clearCalc();
+    })
+</script>
+
+{% endblock %}

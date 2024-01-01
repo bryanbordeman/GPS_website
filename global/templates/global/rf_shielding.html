@@ -1,0 +1,366 @@
+{%  extends 'global/main.html' %}
+{% load static %}
+{% block content %}
+{% include "global/modal_rf_door_touch_screen.html" %}
+{% include "global/modal_rf_window_calc.html" %}
+{% include "global/modal_rf_honeycomb_mri_data.html" %}
+{% include "global/modal_power_filter_data.html" %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css">
+
+<style>
+    .carousel-caption {
+        position: relative;
+        left: 0;
+        top: 0;
+    }
+
+    .carousel-indicators li {
+        width: 18px;
+        max-width: 18px;
+        height: 18px;
+        max-height: 18px;
+        margin: 3px;
+        background-color: none;
+        border: 2px solid #11495F;
+        border-radius: 100%;
+        opacity: .5;
+        transition: all .3s;
+      }
+
+    .carousel-indicators li.active,
+    .carousel-indicators li:hover {
+        opacity: .9;
+        background-color: #1b87b0;
+    }
+
+    .carousel-control-next-icon,
+    .carousel-control-prev-icon {
+        width: 40px;
+        height: 40px;
+        filter: invert(50%);
+    }
+</style>
+<style>
+
+    .icon-background-quench {
+        max-width: 40%;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        opacity: 0.2;
+      }
+
+    .display-3 {
+        font-size: 2.5em;
+    }
+
+
+    @media only screen and (max-width: 450px){
+        .display-4 {
+            font-size: 1.75em;
+        }
+        .icon-background-quench {
+            max-width: 60%;
+          }
+    }
+    @media not all and (max-width: 450px) {
+    .display-4 {
+        font-size: 2em;
+    }
+    }
+
+    .border-3 {
+        border-width:3px !important;
+    }
+    .custom-section-button{
+        position: absolute;
+        top:10px;
+        right:10px;
+        z-index: 50;
+
+      }
+
+    @media only screen and (max-width: 400px){
+        .custom-section-button{
+          top:60px;
+        }
+      }
+
+</style>
+
+
+<!-- Back to top button -->
+<a id="button"></a>
+
+<section id="room-type">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-lg-6 text-left">
+                <div class="title-container-blue">
+                    <h2 class="display-4" >RF Galvanized Panel System</h2>
+                </div>
+                <img src="{% static 'images/mri_icon.svg' %}" alt="" class="icon-background">
+                <div class="container">
+                    <div class="iactiveImg mb-4 mt-4" data-ii="25032"></div><script src="https://interactive-img.com/js/include.js"></script>
+                    <!--<img class="w-100 mb-4" src="{% static 'images/mri_room_type_galv.png' %}">-->
+                </div>
+                <p class="lead">
+                    The modular structure is traditionally used for high performance shielding.
+                    Panels are galvanized sheet steel bonded to a wood core that are attached
+                    via framing joints. The RF panel system will be supported via threaded rod
+                    and dielectric isolators attached to the deck above. This shielding system will perform beyond the attenuation levels
+                    required for all major OEM’s.
+                </p>
+            </div>
+            <div class="col-lg-6 text-left">
+                <div class="title-container-blue">
+                    <h2 class="display-4" >RF Copper System</h2>
+                </div>
+
+                <img src="{% static 'images/mri_icon.svg' %}" alt="" class="icon-background">
+                <div class="container">
+                    <div class="iactiveImg mb-4 mt-4" data-ii="25160"></div><script src="https://interactive-img.com/js/include.js"></script>                            <!--<img class="w-100 mb-4" src="{% static 'images/mri_room_type_galv.png' %}">-->
+                </div>
+                <p class="lead">
+                    This non-ferrous enclosure is ideal for shielding applications with restricted site access. The lightweight
+                    copper makes for easy navigation through job sites with limited space. Copper sheets attached to a
+                    plywood substrates and the copper is soldered together at all seams. The plywood, framing, and support
+                    are completed by others. The copper material is easily adaptable to various room configurations and is
+                    accepted for a wide array of applications. This shielding system will perform beyond the attenuation levels
+                    required for all major OEM’s.
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="container">
+                <div class="card mb-4 text-center bg-primary">
+                    <div class="card-body">
+                        <h1 class="display-3" style="color: white;">Custom quench vent systems</h1>
+                        <p class="lead" style="color: white;">Need help designing and fabricating your quench vent system? click the link below!</p>
+                        <div class="text-center">
+                            <a class="btn btn-light mt-3 mb-4" href="{% url 'quench_vent' %}" style="width:200px;">Quench Vent Systems</a>
+                        </div>
+                    </div>
+                    <img src="{% static 'images/helium_icon.svg' %}" alt="" class="icon-background-quench">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="components">
+    <div class="full-width">
+        <div style="background:#11495F !important" class="jumbotron jumbotron-fluid m-0 ">
+            <div class="container text-white">
+                <div class="row">
+                    <div class="col-lg-6 text-left">
+                        <div class="title-container-yellow">
+                            <h2 class="display-4" >RF/ MRI Swing Door</h2>
+                        </div>
+                        <img src="{% static 'images/mri_icon.svg' %}" alt="" class="icon-background">
+                        <div class="container">
+                            <div class="iactiveImg mb-4 mt-4" data-ii="25621"></div><script src="https://interactive-img.com/js/include.js"></script>                    <!--<img class="w-100 mb-4" src="{% static 'images/mri_room_type_galv.png' %}">-->
+                        </div>
+                        <button class="btn btn-danger mt-1 mb-4 mr-4" data-toggle="modal" data-target="#mriTouchModal">Access Control</button>
+                        <button type="button" class="btn btn-primary mt-1 mb-4" data-toggle = "lightbox" data-gallery="gallery"
+                        href="{% static 'images/mri_doors/mri_door_19.jpg' %}">
+                        <a href="{% static 'images/mri_doors/mri_door_02.jpg' %}" data-toggle="lightbox" data-gallery="gallery"></a>
+                        <a href="{% static 'images/mri_doors/mri_door_03.jpg' %}" data-toggle="lightbox" data-gallery="gallery"></a>
+                        <a href="{% static 'images/mri_doors/mri_door_04.jpg' %}" data-toggle="lightbox" data-gallery="gallery"></a>
+                        <a href="{% static 'images/mri_doors/mri_door_05.jpg' %}" data-toggle="lightbox" data-gallery="gallery"></a>
+                        <a href="{% static 'images/mri_doors/mri_door_06.jpg' %}" data-toggle="lightbox" data-gallery="gallery"></a>
+                        <a href="{% static 'images/mri_doors/mri_door_07.jpg' %}" data-toggle="lightbox" data-gallery="gallery"></a>
+                        <a href="{% static 'images/mri_doors/mri_door_08.jpg' %}" data-toggle="lightbox" data-gallery="gallery"></a>
+                        <a href="{% static 'images/mri_doors/mri_door_09.jpg' %}" data-toggle="lightbox" data-gallery="gallery"></a>
+                        <a href="{% static 'images/mri_doors/mri_door_10.jpg' %}" data-toggle="lightbox" data-gallery="gallery"></a>
+                        <a href="{% static 'images/mri_doors/mri_door_11.jpg' %}" data-toggle="lightbox" data-gallery="gallery"></a>
+                        <a href="{% static 'images/mri_doors/mri_door_12.jpg' %}" data-toggle="lightbox" data-gallery="gallery"></a>
+                        <a href="{% static 'images/mri_doors/mri_door_13.jpg' %}" data-toggle="lightbox" data-gallery="gallery"></a>
+                        <a href="{% static 'images/mri_doors/mri_door_14.jpg' %}" data-toggle="lightbox" data-gallery="gallery"></a>
+                        <a href="{% static 'images/mri_doors/mri_door_15.jpg' %}" data-toggle="lightbox" data-gallery="gallery"></a>
+                        <a href="{% static 'images/mri_doors/mri_door_16.jpg' %}" data-toggle="lightbox" data-gallery="gallery"></a>
+                        <a href="{% static 'images/mri_doors/mri_door_17.jpg' %}" data-toggle="lightbox" data-gallery="gallery"></a>
+                        <a href="{% static 'images/mri_doors/mri_door_18.jpg' %}" data-toggle="lightbox" data-gallery="gallery"></a>
+                        <a href="{% static 'images/mri_doors/mri_door_01.jpg' %}" data-toggle="lightbox" data-gallery="gallery"></a>
+                        <a href="{% static 'images/mri_doors/mri_door_20.jpg' %}" data-toggle="lightbox" data-gallery="gallery"></a>
+                        <a href="{% static 'images/mri_doors/mri_door_21.jpg' %}" data-toggle="lightbox" data-gallery="gallery"></a>
+                        <a href="{% static 'images/mri_doors/mri_door_22.jpg' %}" data-toggle="lightbox" data-gallery="gallery"></a>
+                        <a href="{% static 'images/mri_doors/mri_door_25.jpeg' %}" data-toggle="lightbox" data-gallery="gallery"></a>
+                        <a href="{% static 'images/mri_doors/mri_door_26.jpeg' %}" data-toggle="lightbox" data-gallery="gallery"></a>
+                        <a href="{% static 'images/mri_doors/mri_door_32.jpeg' %}" data-toggle="lightbox" data-gallery="gallery"></a>
+
+                            Photo Gallary <i class="far fa-images"></i>
+                        </button>
+                        <p class="lead mb-4">
+                            Our door is fabricated using stainless steel giving it a premium aesthetic as well as strength and durability.
+                            View windows set into the doors are optional. Windows are available in custom sizes, from side view lites to full panel openings.
+                        </p>
+                    </div>
+                    <div class="col-lg-6 text-left">
+                        <div class="title-container-yellow">
+                            <h2 class="display-4" >RF/ MRI Sliding Door</h2>
+                        </div>
+                        <img src="{% static 'images/mri_icon.svg' %}" alt="" class="icon-background">
+                        <div class="container">
+                            <div class="iactiveImg mb-4 mt-4" data-ii="25691"></div><script src="https://interactive-img.com/js/include.js"></script>
+                        </div>
+                        <button type="button" class="btn btn-primary mt-1 mb-4" data-toggle = "lightbox" data-gallery="gallery_sliding_door"
+                        href="{% static 'images/mri_doors/mri_door_27.jpg' %}">
+                        <a href="{% static 'images/mri_doors/mri_door_28.jpg' %}" data-toggle="lightbox" data-gallery="gallery_sliding_door"></a>
+                        <a href="{% static 'images/mri_doors/mri_door_29.jpg' %}" data-toggle="lightbox" data-gallery="gallery_sliding_door"></a>
+                        <a href="{% static 'images/mri_doors/mri_door_31.jpg' %}" data-toggle="lightbox" data-gallery="gallery_sliding_door"></a>
+
+                            Photo Gallary <i class="far fa-images"></i>
+                        </button>
+                        <p class="lead mb-4">
+                            Our fully automatic Sliding RF Door features a completely pneumatic operating system and stainless steel design
+                            ideal for multiple bay operating suites. This door is offered in single or double leaf designs and offers similar
+                            safety, security, and access control features as our RF/ MRI Swing Door.
+                        </p>
+                    </div>
+                </div>
+                <div class="card text-center mt-4 mb-4 bg-primary">
+                    <div class="card-body">
+                        <p class="lead">The most advanced ground monitoring system on the market.</p>
+                        <div class="text-center">
+                            <a class="btn btn-light" href="{% url 'ground_alarm' %}" style="width:200px;">Ground Alarm Module</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 text-left">
+                        <div class="title-container-yellow">
+                            <h2 class="display-4" >RF Waveguide</h2>
+                        </div>
+                        <img src="{% static 'images/mri_icon.svg' %}" alt="" class="icon-background">
+                        <div class="container">
+                            <div class="iactiveImg mb-4 mt-4" data-ii="24667"></div><script src="https://interactive-img.com/js/include.js"></script>
+                        </div>
+                        <button type="button" class="btn btn-primary mt-1 mb-4" data-toggle="modal" data-target="#rfHoneycombMRIModal">
+                            Honeycomb Data <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <p class="lead mb-4">
+                            All HVAC access points into the RF shielded enclosure will be treated with a hex cell honeycomb waveguide vent assembly.
+                            The waveguide hex cell geometry is sized for optimal performance at the design specification.
+                        </p>
+                    </div>
+                    <div class="col-lg-6 text-left">
+                        <div class="title-container-yellow">
+                            <h2 class="display-4" >RF Power Filter</h2>
+                        </div>
+                        <img src="{% static 'images/mri_icon.svg' %}" alt="" class="icon-background">
+                        <div class="container">
+                            <div class="iactiveImg mb-4 mt-4" data-ii="25692"></div><script src="https://interactive-img.com/js/include.js"></script>
+                        </div>
+                        <button type="button" class="btn btn-primary mt-1 mb-4" data-toggle="modal" data-target="#powerFilterModal">
+                            Filter Data <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <p class="lead mb-4">
+                            Power, signal, and communication lines need to run through a power filter. Electrical filters eliminate
+                            the unwanted RF signals by displacing them to ground. Every conductor which penetrates the shield, including
+                            neutral and signal return lines, must be filtered. Grounding wires must be bonded directly to the shield via the
+                            ground buss bar.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 text-left">
+                        <div class="title-container-yellow">
+                            <h2 class="display-4" >RF Window</h2>
+                        </div>
+                        <img src="{% static 'images/mri_icon.svg' %}" alt="" class="icon-background">
+                        <div class="container">
+                            <div class="iactiveImg mb-4 mt-4" data-ii="25689"></div><script src="https://interactive-img.com/js/include.js"></script>
+                        </div>
+                        <button type="button" class="btn btn-primary mt-1 mb-4" data-toggle="modal" data-target="#rfWindowCalcModal">
+                            Window Calculator <i class="fas fa-calculator"></i>
+                        </button>
+                        <p class="lead mb-4">
+                            RF shielded windows are factory fabricated double layer, free of moiré pattern, non-reflective black
+                            coating with shielding equivalent to the enclosure.
+                        </p>
+                    </div>
+                    <div class="col-lg-6 text-left">
+                        <div class="title-container-yellow">
+                            <h2 class="display-4" >RF Pipe Waveguides</h2>
+                        </div>
+                        <img src="{% static 'images/mri_icon.svg' %}" alt="" class="icon-background">
+                        <div class="container">
+                            <div class="iactiveImg mb-4 mt-4" data-ii="25990"></div><script src="https://interactive-img.com/js/include.js"></script>
+                        </div>
+                        <h5 class="lead"><strong><u>Type 1</u></strong></h5>
+                        <p class="lead">
+                            RF Pipe Penetration is a pass-thru style. RF mesh gasket is wrapped around the metallic pipe being passed
+                            through and bonded to the RF Pipe Penetration with stainless steel clamps. RF gasket connection is completed
+                            after magnet delivery because it may cause a hard ground if no dielectric is used (typ. for med gas).
+                        </p>
+                        <h5 class="lead"><strong><u>Type 2</u></strong></h5>
+                        <p class="lead">
+                            RF Pipe Penetration is a pass-thru style. Non-metallic pipes or tubes can be passed through using this penetration.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<script>
+    $(document).on("click", '[data-toggle="lightbox"]', function(event) {
+      event.preventDefault();
+      $(this).ekkoLightbox();
+      $j("a.watchbutton").nivoLightbox({
+        effect: 'fade',
+        afterShowLightbox: function()
+        {
+            src = $j('.nivo-lightbox-content > iframe').attr('src');
+            $j('.nivo-lightbox-content > iframe').attr('src', src  +'?autoplay=1');
+        }
+    });
+    });
+</script>
+
+<script>
+    var btn = $('#button');
+
+    $(window).scroll(function() {
+        if ($(window).scrollTop() > 900) {
+            btn.addClass('show');
+        } else {
+            btn.removeClass('show');
+        }
+    });
+
+    btn.on('click', function(e) {
+        e.preventDefault();
+        $('html, body').animate({scrollTop:0}, '900');
+    });
+</script>
+
+<script>
+    $('.carousel').on('touchstart', function(event){
+        const xClick = event.originalEvent.touches[0].pageX;
+        $(this).one('touchmove', function(event){
+            const xMove = event.originalEvent.touches[0].pageX;
+            const sensitivityInPx = 5;
+
+            if( Math.floor(xClick - xMove) > sensitivityInPx ){
+                $(this).carousel('next');
+            }
+            else if( Math.floor(xClick - xMove) < -sensitivityInPx ){
+                $(this).carousel('prev');
+            }
+        });
+        $(this).on('touchend', function(){
+            $(this).off('touchmove');
+        });
+    });
+</script>
+
+{% endblock %}

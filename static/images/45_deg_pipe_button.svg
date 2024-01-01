@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="640px" height="640px" viewBox="0 0 640 640" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>45_deg_pipe_button</title>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="45_deg_pipe_button">
+            <rect id="Rectangle" fill="#1B87B0" x="0" y="0" width="640" height="640" rx="56"></rect>
+            <g id="45_deg_pipe" transform="translate(167.833478, 151.833478)" fill="#FFFFFF">
+                <rect id="Rectangle" transform="translate(96.166522, 96.166522) rotate(45.000000) translate(-96.166522, -96.166522) " x="72.1665222" y="-15.8334778" width="48" height="224" rx="24"></rect>
+                <rect id="Rectangle" transform="translate(192.166522, 312.166522) rotate(90.000000) translate(-192.166522, -312.166522) " x="168.166522" y="200.166522" width="48" height="224" rx="24"></rect>
+                <path d="M280.166522,264.166522 L104.166522,264.166522 C104.166522,233.985785 88.9731982,207.353639 65.8178048,191.501338 L193.574808,68.6586831 C246.766652,116.955074 280.166522,186.660319 280.166522,264.166522 Z" id="Combined-Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

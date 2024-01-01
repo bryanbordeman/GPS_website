@@ -1,0 +1,73 @@
+{%  extends 'global/main.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+<style>
+
+    #title-container {
+        border-bottom: 3px solid #FFC107;
+
+    }
+    @media only screen and (max-width: 430px){
+        .display-4{
+            font-size: 3em;
+        }
+    }
+    .border-3 {
+        border-width:3px !important;
+    }
+    /* @media only screen and (min-width: 1198px){
+        .jumbotron{
+        height:50vh;
+    }
+    }*/
+
+    .custom-list{
+        font-size: 1em;
+    }
+    .custom-list-header{
+        font-size: 2em;
+    }
+    @media only screen and (min-width: 1198px){
+        .jumbotron{
+        height:100vh;
+    }
+    }
+
+   
+</style>
+
+<section>
+    <div class="full-width">
+        <div style="background: none !important" class="jumbotron jumbotron-fluid m-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 text-left">
+                        <img src="{% static 'images/scif_icon.svg' %}" alt="" class="icon-background">
+                        <div class="container">
+                            <h1 class="display-4 display-4-custom">Protect your sensitive or classified information</h1>
+                            <p class="lead mt-4">Our RF Shielding is designed to be a security enhancement to Sensitive Compartmented Information Facility (SCIF) rooms. 
+                                This supplement adds another layer of protection to ensure optimum security.</p>
+                                <hr>
+                                <h2 class="lead custom-list-header">Features</h2>
+                                <ul class="lead custom-list">
+                                <li>RF shielding >40dB attenuation from 10 kHz to 10 GHz</li>
+                                <li>Blast and bullet resistance option</li>
+                                <li>Lead Lining option</li>
+                                <!-- <li>STC rating option</li> -->
+                                <li>X-10 High Security Combination Lock</li>  
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-left">
+                        <div class="container">
+                            <img class="mt-3 mb-2" style="width:100%" src="{% static 'images/scif_shielding.jpeg' %}" alt="SCIF Shielding" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

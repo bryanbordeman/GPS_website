@@ -1,0 +1,111 @@
+{% load static %}
+<style>
+    @media (max-width: 991.5px){ 
+        .navbar-collapse ul { 
+            height: 100vh;
+            overflow-y: auto;
+        } 
+        .request{
+            margin-top: 20px;
+        }
+        .nav-link, .dropdown-item, .request {
+            font-size: 1.5em;
+        }
+     }
+     @media only screen and (min-width: 992px){ 
+        .image1{
+          display: none;
+        }
+        
+     }
+     button.second-button {
+        border: none;
+        outline: none;
+     }
+     
+</style>
+<!--Navbar-->
+<nav class="navbar navbar-default" style="height:70px" >
+</nav>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-navbar">
+
+    <!-- Navbar brand -->
+    <a href="{% url 'home' %}">
+        <img class="mr-3" src="{% static 'images/globe_light.png' %}" alt="Global Shielding Icon" width= "40" >
+    </a>  
+  
+    <!-- Collapse button -->
+    <button class="navbar-toggler second-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent23"
+    aria-controls="navbarSupportedContent23" aria-expanded="false" aria-label="Toggle navigation">
+    <div class="animated-icon2"><span></span><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent23">
+    
+        <!-- Links -->
+        <ul class="navbar-nav ml-auto text-center"> 
+            
+            <li {% if request.resolver_match.url_name == 'home' %}class="active"{% endif %}>
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
+            </li>
+            <li {% if request.resolver_match.url_name == 'about_us' %}class="active"{% endif %}>
+                <a class="nav-link" href="{% url 'about_us' %}">About Us</a>
+            </li>
+            <li>
+                <li class="navbar-nav ml-auto nav-flex-icons">
+                    <li class="nav-item dropdown">
+                        <div class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Products</div>
+                        <div class="dropdown-menu dropdown-default text-center"
+                        aria-labelledby="navbarDropdownMenuLink-333">
+                        <a class="dropdown-item" href="{% url 'rf_shielding' %}">MRI/RF Shielding</a>
+                        <a class="dropdown-item" href="{% url 'rf_chambers' %}">RF Chambers</a>
+                        <a class="dropdown-item" href="{% url 'radiation_shielding' %}">Radiation Shielding</a>
+                        <a class="dropdown-item" href="{% url 'therapy_shielding' %}">Radiation Therapy Shielding</a>
+                        <a class="dropdown-item" href="{% url 'lead_enclosures' %}">Lead Enclosures</a>
+                        <a class="dropdown-item" href="{% url 'quench_vent' %}">Quench Vent Systems</a>
+                        <a class="dropdown-item" href="{% url 'scif_shielding' %}">SCIF Shielding</a>
+                        <a class="dropdown-item" href="{% url 'ac_shielding' %}">AC ELF Shielding</a>
+                        <a class="dropdown-item" href="{% url 'pd_shielding' %}">PD Shielding</a>
+                        
+                        </div>
+                    </li>
+                </li>  
+            </li>
+            <li>
+                <li class="navbar-nav ml-auto nav-flex-icons">
+                    <li class="nav-item dropdown">
+                        <div class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Services</div>
+                        <div class="dropdown-menu dropdown-default text-center"
+                        aria-labelledby="navbarDropdownMenuLink-333">
+                        <a class="dropdown-item" href="{% url 'services_rf_testing' %}">RF Testing</a>
+                        <a class="dropdown-item" href="{% url 'services_door' %}">Door Services</a>
+                        <a class="dropdown-item" href="{% url 'services_engineering' %}">Engineering</a>
+                        </div>
+                    </li>
+                </li>  
+            </li>
+            <li>
+                <a class="request btn btn-secondary mr-3 ml-3" href="{% url 'request_quote' %}">Request A Quote</a>
+            </li>
+            <!-- <li>
+                <img class="image1 mt-2" src="{% static 'images/global_shielding_dark_logo.png' %}" style="max-width:220px" >
+            </li> -->
+   
+        </ul>
+        <!-- Links -->
+        
+    </div>
+    <!-- Collapsible content -->
+</nav>
+  <!--/.Navbar-->
+  
+<script>
+$(document).ready(function () {
+    $('.second-button').on('click', function () {
+        $('.animated-icon2').toggleClass('open');
+    });
+});
+</script>

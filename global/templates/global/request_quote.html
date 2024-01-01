@@ -1,0 +1,93 @@
+{%  extends 'global/main.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+<style>
+    .form-control {
+        margin-bottom: 1em;
+        
+    }
+    #title-container {
+        border-bottom: 3px solid #FFC107;
+        
+    }
+    @media only screen and (max-width: 430px){ 
+        .display-4{
+            font-size: 3em;  
+        }
+    }
+    .border-3 {
+        border-width:3px !important;
+    }
+    @media only screen and (min-width: 1198px){
+        .jumbotron{
+        height:50vh;
+    }
+    }
+
+</style>
+
+<div class="container text-center mb-4" id="title-container">
+    <h1 class="display-4">Request A Quote</h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 text-left" >
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form.company_name | as_crispy_field}}
+                {{form.first_name | as_crispy_field}}
+                {{form.last_name | as_crispy_field}}
+                {{form.email | as_crispy_field}}
+                {{form.phone | as_crispy_field}}
+              
+        </div>
+        <div class="col-lg-6 text-left">
+                {{form.description | as_crispy_field}}
+                <button class="btn btn-warning mb-4" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="full-width">
+    <div style="background:#11495F !important" class="jumbotron jumbotron-fluid m-0">
+        <div class="container text-white">
+            <p class="lead mb-4">If you have any questions we are available 24/7 to help. 
+                Feel free to contact us by telephone or email and 
+                we will be sure to get back to you as soon as possible.
+            </p>
+        </div>
+        <div class="container text-white">
+            <div class="row">
+                <div class="col-lg-6 text-center mb-4">
+                    <img src="{% static 'images/email_icon.svg' %}" alt="" class="icon-background">
+                    <div class="title-container-yellow">
+                        <h1 class="display-4">Email</h1>
+                    </div>
+                    <a class="lead text-white" href="mailto:sales@global-shielding.com?subject=Request%20A%20Quote%20(Global%20Shielding)" target="_blank">
+                        sales@global-shielding.com
+                    </a>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <div class="title-container-yellow">
+                        <h1 class="display-4">Phone</h1>
+                    </div>
+                    <img src="{% static 'images/phone_chat_icon.svg' %}" alt="" class="icon-background" style="max-width: 30%;">
+                    <a class="lead text-white" href="tel:+1-201-212-5138" >1-201-212-5138</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+        /* Receive global var for input*/
+        var request = localStorage.getItem("request");
+        document.getElementById("description").value = request;
+    
+        /* clear description when page is reloaded*/
+        window.onload = window.localStorage.clear();
+
+</script>
+  
+{% endblock %}

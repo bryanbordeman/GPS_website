@@ -1,0 +1,327 @@
+{%  extends 'global/main.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+<style>
+
+    #title-container {
+        border-bottom: 3px solid #FFC107;
+        
+
+    }
+    @media only screen and (max-width: 430px){
+        .display-4{
+            font-size: 3em;
+        }
+    }
+    .border-3 {
+        border-width:3px !important;
+    }
+    /* @media only screen and (min-width: 1198px){
+        .jumbotron{
+        height:50vh;
+    }
+    }*/
+
+    .custom-list{
+        font-size: 1em;
+    }
+    .custom-list-header{
+        font-size: 2em;
+    }
+    @media only screen and (min-width: 1198px){
+        .jumbotron{
+        height:100vh;
+    }
+    }
+
+   
+</style>
+
+<style>
+   
+    #groundSlider .slider-selection, .slider-handle, .slider-tick.round.in-selection {
+        background:#28a745;
+    }
+   
+    .slider.slider-horizontal {
+        width: 100%;
+        height: 20px;
+      }
+    /* #groundSlider .slider-track {
+        position: relative;
+        width: 100%;
+    } */
+    
+    .time_stamp_button {
+        position:absolute;
+        width: 43%;
+        white-space: nowrap;
+        padding: 5px;
+    }
+
+    .logData {
+        position:absolute;
+        top: 30%;
+        left: 7%;
+        white-space: nowrap;
+        padding: 5px;
+    }
+
+    @media (min-width: 300px) { 
+        .time_stamp_button {
+            top: 10%;
+            right: 7%;
+            font-size:smaller;
+           
+        }
+     }
+
+     @media (min-width: 375px) { 
+        .time_stamp_button {
+            top: 10%;
+            right: 6%;
+            font-size:smaller;
+            padding:6px;
+        }
+     }
+    @media (min-width: 576px) { 
+        .time_stamp_button {
+            top: 10%;
+            right: 5%;
+            padding:10px;
+        }
+     }
+
+    @media (min-width: 768px) { 
+        .time_stamp_button {
+            top: 10%;
+            right: 5%;
+            font-size:larger;
+            padding:10px;
+        }
+     }
+
+    @media (min-width: 992px) { 
+        .time_stamp_button {
+            top: 8%;
+            right: 6%;
+            font-size:large;
+        }
+     }
+
+    @media (min-width: 1200px) { 
+        .time_stamp_button {
+            top: 10%;
+            right: 5%;
+        }
+     }
+
+    @media (min-width: 1400px) { 
+        .time_stamp_button {
+            top: 9%;
+            right: 7%;
+            
+        }
+     }
+
+</style>
+
+<section>
+    <div class="full-width">
+        <div style="background: none !important;" class="jumbotron jumbotron-fluid m-0">
+            <div class="container">
+                <div class="row">
+                    <div class="container">
+                        <div class="title-container-blue">
+                            <h1 class="display-4 display-4-custom">Ground Alarm Module</h1>
+                        </div>
+                        <p class="lead mb-4">We have the most advanced ground monitoring system on the market. See how it works. Drag the 	&#8486; meter to see it in action.</p>
+                        <div class="container mb-4">
+                            <input id="ground-scale" data-slider-id='groundSlider' type="text">
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 text-center mb-4">
+                                <div class="container" id="stableScreen">
+                                    <img class="w-100" src="{% static 'images/ground_alarm/7 screen (Stable).png' %}" alt="Ground Alarm Module (Stable)" style="display: inline;">
+                                    <button id="timeStampButton" type="button" class="btn btn-primary time_stamp_button" onclick="timeStampScreen()"><i class="fas fa-list-alt"></i> TIMESTAMP LOG</button>
+                                </div>
+                                <div class="container" id="warningScreen5k" style="display: none;">
+                                    <img class="w-100"src="{% static 'images/ground_alarm/7 screen (Warning 5k).png' %}" alt="Ground Alarm Module (Warning 5k)">
+                                    <button id="timeStampButton" type="button" class="btn btn-primary time_stamp_button" onclick="timeStampScreen()"><i class="fas fa-list-alt"></i> TIMESTAMP LOG</button>
+                                </div>
+                                <div class="container" id="warningScreen10k" style="display: none;">
+                                    <img class="w-100" src="{% static 'images/ground_alarm/7 screen (Warning 10k).png' %}" alt="Ground Alarm Module (Warning 10k)">
+                                    <button id="timeStampButton" type="button" class="btn btn-primary time_stamp_button" onclick="timeStampScreen()"><i class="fas fa-list-alt"></i> TIMESTAMP LOG</button>
+                                </div>
+                                <div class="container" id="alarmScreen1k" style="display: none;">
+                                    <img class="w-100" src="{% static 'images/ground_alarm/7 screen (Alarm).png' %}" alt="Ground Alarm Module (Alarm)">
+                                    <button id="timeStampButton" type="button" class="btn btn-primary time_stamp_button" onclick="timeStampScreen()"><i class="fas fa-list-alt"></i> TIMESTAMP LOG</button>
+                                </div>
+                                <div class="container" id="log" style="display: none;">
+                                    <img class="w-100" src="{% static 'images/ground_alarm/7 screen (Log).png' %}">
+                                    <p class="logData" id="groundLog"></p>
+                                    <button id="backButton" type="button" class="btn btn-primary time_stamp_button" onclick="homeScreen()"><i class="far fa-arrow-alt-circle-left"></i> BACK</button>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 text-left">
+                                <p class="lead" >Most, if not all, RF enclosures have a strict requirement for a single point ground. 
+                                    To achieve this, the enclosure is isolated (floating) from the building ground throughout 
+                                    the construction process and grounded to the building at the conclusion of the project. 
+                                    When the room is under construction a ground alarm is connected to the enclosure to monitor 
+                                    the isolation.
+                                </p>
+                                <p class="lead" >
+                                    This system utilizes smart technology indicating ground at 1k ohms, and two warning stages at 10k ohms and at 5k ohms. 
+                                    This proves useful during the construction phase because the shield can be monitored in real time 
+                                    and addressed before it becomes critical. Provided at no additional cost with each enclosure.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+
+var warning5k = new Audio("{% static 'audio/5k_warning.wav' %}");
+var warning10k = new Audio("{% static 'audio/10k_warning.wav' %}");
+var alarm1k = new Audio("{% static 'audio/alarm.wav' %}");
+
+var slider = new Slider("#ground-scale", {
+    ticks: [0, 1000, 5000, 10000, 100000],
+    ticks_positions: [0, 25, 50, 75, 100],
+    ticks_labels: ['GND', '1K \u2126', '5K \u2126', '10k \u2126' ,'∞'],
+    ticks_snap_bounds: 50,
+    tooltip: 'hide',
+    value: 100000
+});
+
+window.addEventListener('load', (event) => {
+    document.getElementById("stableScreen").style.display = "contents";
+});
+
+
+// Call a method on the slider
+var groundValue = function() {
+    /* if (slider.getValue() < 10000) {
+        console.log(slider.getValue());
+    }*/
+    var ground_value = slider.getValue()
+    switch (true){
+        case (ground_value <= 10000 && ground_value > 5000):
+            warning5k.pause();
+            warning5k.currentTime = 0;
+            alarm1k.pause();
+            alarm1k.currentTime = 0;
+            $('#groundSlider .slider-selection').css('background-color', '#ffc107');
+            $('#groundSlider .slider-handle').css('background-color', '#ffc107');  
+            $('#groundSlider .slider-tick.round.in-selection').css('background-color', '#ffc107'); 
+            warning10k.play();
+            document.getElementById("stableScreen").style.display = "none";
+            document.getElementById("warningScreen5k").style.display = "none";
+            document.getElementById("warningScreen10k").style.display = "contents";
+            document.getElementById("alarmScreen1k").style.display = "none";
+            document.getElementById("log").style.display = "none";
+            break;
+        case (ground_value <= 5000 && ground_value > 2000):
+            warning10k.pause();
+            warning10k.currentTime = 0;
+            alarm1k.pause();
+            alarm1k.currentTime = 0;
+            $('#groundSlider .slider-selection').css('background-color', '#FD7E14');
+            $('#groundSlider .slider-handle').css('background-color', '#FD7E14');  
+            $('#groundSlider .slider-tick.round.in-selection').css('background-color', '#FD7E14'); 
+            warning5k.play();
+            document.getElementById("stableScreen").style.display = "none";
+            document.getElementById("warningScreen5k").style.display = "contents";
+            document.getElementById("warningScreen10k").style.display = "none";
+            document.getElementById("alarmScreen1k").style.display = "none";
+            document.getElementById("log").style.display = "none";
+            break;
+        case (ground_value < 2000):
+            timeStampLog();
+            warning5k.pause();
+            warning5k.currentTime = 0;
+            warning10k.pause();
+            warning10k.currentTime = 0;
+            $('#groundSlider .slider-selection').css('background-color', '#dc3545'); 
+            $('#groundSlider .slider-handle').css('background-color', '#dc3545');  
+            $('#groundSlider .slider-tick.round.in-selection').css('background-color', '#dc3545');
+            alarm1k.play();
+            document.getElementById("stableScreen").style.display = "none";
+            document.getElementById("warningScreen5k").style.display = "none";
+            document.getElementById("warningScreen10k").style.display = "none";
+            document.getElementById("alarmScreen1k").style.display = "contents";
+            document.getElementById("log").style.display = "none";
+            break;
+        default:
+            warning10k.pause();
+            warning10k.currentTime = 0;
+            warning5k.pause();
+            warning5k.currentTime = 0;
+            alarm1k.pause();
+            alarm1k.currentTime = 0;
+            $('#groundSlider .slider-selection').css('background-color', '#28a745'); 
+            $('#groundSlider .slider-handle').css('background-color', '#28a745');  
+            $('#groundSlider .slider-tick.round.in-selection').css('background-color', '#28a745');
+            document.getElementById("stableScreen").style.display = "contents";
+            document.getElementById("warningScreen5k").style.display = "none";
+            document.getElementById("warningScreen10k").style.display = "none";
+            document.getElementById("alarmScreen1k").style.display = "none";
+            document.getElementById("log").style.display = "none";
+         
+    }
+}
+
+slider.on("change", groundValue);
+
+
+var count = 0;
+
+function minutes_with_leading_zeros(dt) 
+{ 
+  return (dt.getMinutes() < 10 ? '0' : '') + dt.getMinutes();
+}
+
+function timeStampLog() {
+ 
+    var currentdate = new Date(); 
+    var datetime = "Timestamp: " + (currentdate.getMonth()+1) + "/"
+                    + currentdate.getDate() + "/" +
+                    + currentdate.getFullYear() + " @ "  
+                    + currentdate.getHours() + ":"  
+                    + minutes_with_leading_zeros(currentdate) 
+    if (count < 4) {
+    document.getElementById("groundLog").innerHTML += datetime + "<br>";
+    count += 1;
+    }
+}
+
+function timeStampScreen() {
+    slider.setValue(100000);
+    groundValue();
+
+    document.getElementById("log").style.display = "contents";
+    document.getElementById("stableScreen").style.display = "none";
+    document.getElementById("warningScreen5k").style.display = "none";
+    document.getElementById("warningScreen10k").style.display = "none";
+    document.getElementById("alarmScreen1k").style.display = "none";
+
+}
+
+function homeScreen() {
+    slider.setValue(100000);
+    groundValue();
+    document.getElementById("log").style.display = "none";
+    document.getElementById("stableScreen").style.display = "contents";
+    document.getElementById("warningScreen5k").style.display = "none";
+    document.getElementById("warningScreen10k").style.display = "none";
+    document.getElementById("alarmScreen1k").style.display = "none";
+
+}
+
+</script>
+{% endblock %}

@@ -1,0 +1,59 @@
+
+
+.custom-radios div {
+  display: inline-block;
+}
+.custom-radios input[type="radio"] {
+  display: none;
+}
+.custom-radios input[type="radio"] + label {
+  color: #333;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+
+
+.custom-radios input[type="radio"] + label span {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: -1px 4px 0 0;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+  line-height: 44px;
+}
+.custom-radios input[type="radio"]:checked + label span{
+  width: 50px;
+  height: 50px;
+}
+.custom-radios input[type="radio"]:hover + label span{
+  width: 50px;
+  height: 50px;
+}
+.custom-radios input[type="radio"] + label span img {
+  opacity: 0;
+  transition: all .3s ease;
+}
+.custom-radios input[type="radio"]#color-1 + label span {
+  background-image: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 50%, rgba(134,134,134,1) 100%);
+}
+.custom-radios input[type="radio"]#color-2 + label span {
+  background-image: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 50%, rgba(0,212,255,1) 100%);
+}
+.custom-radios input[type="radio"]#color-3 + label span {
+  background-image: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(147,147,147,1) 50%, rgba(255,255,255,1) 100%);
+
+}
+.custom-radios input[type="radio"]#color-4 + label span {
+  background-image: linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(121,9,9,1) 50%, rgba(255,0,24,1) 100%);
+}
+.custom-radios input[type="radio"]:checked + label span img {
+  opacity: 1;
+}

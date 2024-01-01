@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="537px" height="536px" viewBox="0 0 537 536" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>synchrotron_icon</title>
+    <defs>
+        <filter id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.066667 0 0 0 0 0.286275 0 0 0 0 0.372549 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Marketing" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="SECURITY-SHIELDING" transform="translate(-706.000000, -247.000000)">
+            <g id="synchrotron_icon" transform="translate(706.027849, 248.000000)">
+                <g filter="url(#filter-1)" id="ratchet_icon">
+                    <g transform="translate(268.035015, 267.005325) scale(-1, 1) translate(-268.035015, -267.005325) ">
+                        <path d="M212.472151,-2.51247911e-11 L321.094,42.912 L341.930445,3.72595486 L417.81,92.75 L453.664085,67.6453839 L480.849,181.381 L524.141499,176.065404 L494.779,289.137 L536.07003,304.987004 L456.937,391.172 L486.122877,423.584922 L376.521,464.438 L387.035911,506.611741 L271.199,491.244 L260.536504,534.01065 L165.571,466.129 L135.669685,499.338993 L83.605,394.652 L42.4589878,410.447582 L43.594,293.572 L3.23296945e-13,288.219265 L55.815,185.662 L19.3355217,160.118799 L116.92,95.668 L96.3001972,56.888719 L212.472,43.769 L212.472151,-2.51247911e-11 Z" id="Combined-Shape" fill="#11495F"></path>
+                    </g>
+                </g>
+                <circle id="Oval" stroke="#FFFFFF" stroke-width="17" fill="#11495F" cx="268.472151" cy="263.5" r="199"></circle>
+                <line x1="335.472151" y1="192.5" x2="239.472151" y2="352.5" id="Line" stroke="#FFFFFF" stroke-width="20" stroke-linecap="square"></line>
+                <line x1="335.472151" y1="192.5" x2="239.472151" y2="352.5" id="Line" stroke="#60BCD9" stroke-width="20" stroke-linecap="square"></line>
+                <circle id="Oval" stroke="#FFFFFF" stroke-width="17" fill="#11495F" cx="393.972151" cy="224" r="66.5"></circle>
+                <path d="M326.972151,224.5 C326.972151,261.779221 357.19293,292 394.472151,292 C431.751371,292 461.972151,261.779221 461.972151,224.5 C461.972151,187.220779 431.751371,157 394.472151,157 C357.542963,157 327.540289,186.655928 326.980125,223.451787" id="Path" stroke="#60BCD9" stroke-width="20" transform="translate(394.472151, 224.500000) rotate(34.000000) translate(-394.472151, -224.500000) "></path>
+                <path d="M464.491875,179.165095 C452.174102,166.000306 434.644458,157.772795 415.193176,157.772795 C378.263988,157.772795 348.261314,187.428723 347.70115,224.224582" id="Path" stroke="#60BCD9" stroke-width="20" transform="translate(406.096512, 190.998688) rotate(34.000000) translate(-406.096512, -190.998688) "></path>
+                <path d="M467.972151,263.518072 C465.577989,155.140739 376.924172,64 267.972151,64 C157.515201,64 67.9721509,153.54305 67.9721509,264 C67.9721509,374.45695 157.515201,464 267.972151,464 C378.429101,464 467.972151,374.45695 467.972151,264" id="Path" stroke="#60BCD9" stroke-width="20" transform="translate(267.972151, 264.000000) rotate(-18.000000) translate(-267.972151, -264.000000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

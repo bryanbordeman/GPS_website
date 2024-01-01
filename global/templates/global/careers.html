@@ -1,0 +1,64 @@
+{%  extends 'global/main.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+<style>
+
+    #title-container {
+        border-bottom: 3px solid #FFC107;
+
+    }
+    @media only screen and (max-width: 430px){
+        .display-4{
+            font-size: 3em;
+        }
+    }
+    .border-3 {
+        border-width:3px !important;
+    }
+    /* @media only screen and (min-width: 1198px){
+        .jumbotron{
+        height:50vh;
+    }
+    }*/
+
+    .navbar-default{
+        display:none;
+    }
+
+    @media only screen and (min-width: 1198px){
+        .jumbotron{
+        height:100vh;
+    }
+    }
+
+   
+</style>
+
+
+<div class="full-width mt-4">
+    <div style="background:#11495F !important" class="jumbotron jumbotron-fluid m-0">
+        <div class="container text-white">
+            <div class="container text-center" id="title-container">
+                <h1 class="display-4">Careers</h1>
+            </div>
+            <div class="row mt-4">
+                <div class="col-lg-6 text-left">
+                    <p class="lead mb-3">
+                        Looking for more than just a career? Want to make a difference? At Global Shielding 
+                        you'll get the incentives, tools, resources and personal support you need to pursue 
+                        your professional dreams. Click the link below to jump start your career. 
+                    </p>
+                    <a class="btn btn-primary mb-4" href="mailto:bbordeman@global-shielding.com?subject=Career%20Opportunities%20(Global%20Shielding)" target="_blank" style="width:200px">Join Our Team</a>
+                </div>
+                <div class="col-lg-6 text-left">
+                    <img class="mb-4 mt-2" src="{% static 'images/services_engineering.png' %}" style="width: 100%;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

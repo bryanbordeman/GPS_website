@@ -1,0 +1,91 @@
+{%  extends 'global/main.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+<style>
+    
+    #title-container {
+        border-bottom: 3px solid #FFC107;
+        
+    }
+    @media only screen and (max-width: 430px){ 
+        .display-4{
+            font-size: 3em;  
+        }
+    }
+    .border-3 {
+        border-width:3px !important;
+    }
+
+    .navbar-default{
+        display:none;
+    }
+    hr {
+        border: 1px solid #FFC107;
+      }
+</style>
+
+
+<div class="full-width mt-4">
+    <div style="background:#11495F !important" class="jumbotron jumbotron-fluid m-0">
+        <div class="container text-white">
+            <div class="container text-center" id="title-container">
+                <h1 class="display-4">Door Services</h1>
+            </div>
+            <div class="row mt-4">
+                <div class="col-lg-6 text-left">
+                    <p class="lead mb-4">The typical day for an MRI tech is usually packed with patients 
+                        and every minute is crucial. Tech's are constantly running in and out of the RF room, 
+                        helping the patient and getting ready for the next scan. Because of this significant 
+                        traffic, the door is the most utilized component of the RF enclosure. Due to its high 
+                        usage, the door is exposed to wear and tear and if not maintained, it can lead to 
+                        artifacts on your images. At Global, we understand how valuable time is for an your 
+                        techs and are prepared to deal with any and all issues that arise with your MRI doors, 
+                        even in the event of an emergency. Global Shielding has the solution for 
+                        all RF door issues including doors that we did not manufacture. If you are experiencing 
+                        issues with your door or think you may need a routine maintenance, please give us a call today!
+                    </p>
+                </div>
+                <div class="col-lg-6 text-left">
+                    <img class="mb-4 mt-2" src="{% static 'images/services_door.png' %}" alt="RF Door Service" style="width: 100%;">
+                </div>
+            </div>
+            <hr>
+            <div class="row mt-4">
+                <div class="col-lg-6 text-left">
+                    <h1 class="display-4" style="font-size: 2em;"><u>MRI Door Service Plan</u></h1>
+                    <ul class="lead">
+                        <li>Replace any damaged RF gasket or fingers</li>
+                        <li>Auto door operator Latching system (if applicable)</li>
+                        <li>Door to frame alignment</li>
+                        <li>Cleaning, lubrication and adjustment as required Switches (if any)</li>
+                        <li>Clean all RF contact surfaces</li>
+                        <li>Verify mechanical operation of door is satisfactory</li>
+                        <li>Provide RF Test report (annual contracts only)</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 text-left">
+                    <h1 class="display-4" style="font-size: 2em;"><u>Linac Door Service Plan</u></h1>
+                    <ul class="lead">
+                        <li>Inspect door reveal spacing</li>
+                        <li>Inspect switched and buttons</li>
+                        <li>Door to frame alignment</li>
+                        <li>Lubricate door hinges and operator if required</li>
+                        <li>Cleaning, lubrication and adjustment as required Switches (if any)</li>
+                        <li>Adjust safety devices (sensors) if required</li>
+                        <li>Ensure door meets ANSI standards</li>
+                        <li>Verify mechanical operation of door is satisfactory</li>
+                        <li>Provide full maintenance report</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+{% endblock %}
+
+
+
+

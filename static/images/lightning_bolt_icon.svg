@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="147px" height="271px" viewBox="0 0 147 271" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>lightning_bolt</title>
+    <defs>
+        <filter id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.066667 0 0 0 0 0.286275 0 0 0 0 0.372549 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g filter="url(#filter-1)" id="emi_icon">
+            <g transform="translate(-146.000000, 0.000000)">
+                <g id="lightning_bolt" transform="translate(146.000000, 0.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                    <polygon id="Path" points="146.788708 147.760817 80.0799059 119.522599 130.150248 0 0.248101485 122.627684 66.9593762 150.866731 16.8865619 270.4001"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

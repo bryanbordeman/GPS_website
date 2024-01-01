@@ -1,0 +1,119 @@
+{%  extends 'global/main.html' %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+<style>
+
+    .rightCircle{ 
+        position:absolute; 
+        width:50px; 
+        height:50px; 
+        border-radius:50%;  
+        background:white; 
+        left:-20px; 
+        top:-20px;
+        content:url(/static/images/favicon_muted_icon.png);
+    
+    }
+
+    #title-container {
+        border-bottom: 3px solid #D3FF4A;
+
+    }
+    @media only screen and (max-width: 430px){
+        .display-4{
+            font-size: 3em;
+        }
+    }
+    .border-3 {
+        border-width:3px !important;
+    }
+    /* @media only screen and (min-width: 1198px){
+        .jumbotron{
+        height:50vh;
+    }
+    }*/
+
+    .icon-background-quench {
+        max-width: 40%;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        opacity: 0.2;
+      }
+
+    @media only screen and (max-width: 450px){ 
+        .icon-background-quench {
+            max-width: 60%;
+          }
+    }
+
+   
+</style>
+
+<div class="container text-center" id="title-container">
+    <h1 class="display-4">About Us</h1>
+</div>
+<div class="full-width">
+    <div style="background: none !important" class="jumbotron jumbotron-fluid m-0">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1 class="display-4" style="font-size: 2em;">Our Company</h1>
+                    <p class="lead mb-2">Our commitment to our core values has catapulted us as one of the industry leaders in our market.
+                        We are a forward-thinking organization that is committed to bringing our clients the best products and services in our industry.
+                    </p>
+                </div>
+                <div class="col">
+                    <div class="card border border-muted p-3 mb-3 mt-3 text-center" style="border-width:3px !important;">
+                        <div class="rightCircle"></div>
+                        <h1 class="display-4" style="font-size: 2em;"><strong>Explore a career at<br>Global Partners in Shielding, Inc.</strong></h1>
+                        <p class="lead mb-3">
+                            We’re looking for people to join our team who are excited to push the limits of innovation.
+                        </p>
+                        <div class="text-center">
+                            <a class="btn btn-light border-secondary" href="{% url 'careers' %}" style="width:200px;">Career Opportunities</a>
+                        </div>
+                        <!-- <img src="{% static 'images/career_icon_muted.svg' %}" class="icon-background-quench"> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h1 class="display-4" style="font-size: 2em;">Capacity & Resources</h1>
+            <p class="lead">
+                Global Shielding is one of the few shielding companies which design, manufacture, and fabricate
+                in-house giving us full control over our Customer’s overall experience. All of our material is stocked and ready to move on a moment’s
+                notice. Additionally, if there are specific/custom needs required for a project, our engineering team along with the help of our
+                resources can fabricate a part immediately upon request and completed within a few days. Our business model has allowed us to act
+                quickly and efficiently to complete the project in a timely manner and ensure the Customer’s overall satisfaction.
+            </p>
+            <p class="lead">
+                We have well over 50 combined years of experience in the shielding industry. In addition to our
+                personable staff, our knowledge and dedication to the craft allows us to assist the customer in the most efficient way possible
+                while providing the best overall experience.
+            </p>
+        </div>
+
+    </div>
+</div>
+
+<div class="full-width">
+    <div style="background:#11495F !important" class="jumbotron jumbotron-fluid m-0">
+        <div class="container text-white">
+            <h1 class="display-4 mb-4" style="font-size: 2em;">A Total Solutions Company</h1>
+            <p class="lead mb-4">
+                Global Shielding provides the widest range services available
+                to help architects and builders solve all interference problems created by radiated
+                and conductive energy from the magnetic through EMI, microwave, and gamma ray frequencies.
+            </p>
+            <p class="lead mb-4">
+                Our field and sales representatives work hand in hand with architects and builders.
+                Global Shielding is one of the world’s most respected manufacturers of shielding materials
+                in the industry.
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

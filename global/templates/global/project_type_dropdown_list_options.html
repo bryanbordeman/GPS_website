@@ -1,0 +1,4 @@
+<option value="">Select Project Type</option>
+{% for type in project_type %}
+<option value="{{ type.pk }}">{{ type.name }}</option>
+{% endfor %}

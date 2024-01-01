@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="441px" height="512px" viewBox="0 0 441 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>emi_icon</title>
+    <defs>
+        <filter id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.066667 0 0 0 0 0.286275 0 0 0 0 0.372549 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g filter="url(#filter-1)" id="emi_icon">
+            <g>
+                <path d="M330.75,150 L441,150 L441,291.268293 L440.970459,294.918495 C439.02327,415.141665 341.060999,512 220.5,512 C98.7212127,512 0,413.175048 0,291.268293 L0,291.268293 L0,158.829268 L110.25,158.829268 L110.25,291.268293 C110.25,352.221671 159.610606,401.634146 220.5,401.634146 C281.389394,401.634146 330.75,352.221671 330.75,291.268293 L330.75,150 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+                <path d="M110.25,0 L110.25,119 L0,119 L0,0 L110.25,0 Z M441,0 L441,119 L330.75,119 L330.75,0 L441,0 Z" id="Combined-Shape" fill="#FFFFFF"></path>
+                <g id="lightning_bolt" transform="translate(146.000000, 0.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                    <polygon id="Path" points="146.788708 147.760817 80.0799059 119.522599 130.150248 0 0.248101485 122.627684 66.9593762 150.866731 16.8865619 270.4001"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

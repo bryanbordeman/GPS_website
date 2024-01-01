@@ -1,0 +1,199 @@
+{%  extends 'global/main.html' %}
+{% load static %}
+{% block content %}
+{% include "global/modal_pb_glass_data.html" %}
+{% include "global/modal_pb_door_calc.html" %}
+
+
+<style>
+    @media only screen and (max-width: 350px){ 
+        .section-button{
+          top:10px;
+        }
+      }
+
+    @media only screen and (max-width: 450px){ 
+        .display-4 {
+            font-size: 1.75em;  
+        }
+    }
+    @media not all and (max-width: 450px) {
+    .display-4 {
+        font-size: 2em;  
+    }
+    }
+    
+    .border-3 {
+        border-width:3px !important;
+    }
+    .custom-list{
+        font-size: 1em;
+      }
+      .custom-list-header{
+        font-size: 2em;
+      }
+</style>
+
+<!-- Back to top button -->
+<a id="button"></a>
+
+<section id="room-type">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 text-left">
+                <div class="title-container-blue">
+                    <h2 class="display-4" >Lead Roll</h2>
+                </div>
+                <img src="{% static 'images/radiation_icon.svg' %}" alt="" class="icon-background">
+                <div class="container">
+                    <div class="iactiveImg mb-4 mt-4" data-ii="25330"></div><script src="https://interactive-img.com/js/include.js"></script>
+                </div>
+                <h5 class="lead"><strong><u>1/32" to 1/8" thick rolls</u></strong></h5>
+                <p class="lead">
+                    Lead roll shielding is typically utilized for imaging modalities such as Computed Tomography (CT), Ultrasound, 
+                    and X-Ray. Lead rolls are used in lieu of lead lined gypsum to increase the efficiency of installation. 
+                    This method has shown to be significantly cheaper, as well as dramatically reducing the installation time.
+                </p> 
+            </div>
+            <div class="col-lg-4 text-left">
+                <div class="title-container-blue">
+                    <h2 class="display-4">Lead Sheet</h2>
+                </div>
+                <img src="{% static 'images/radiation_icon.svg' %}" alt="" class="icon-background">
+                <div class="container">
+                    <div class="iactiveImg mb-4 mt-4" data-ii="25422"></div><script src="https://interactive-img.com/js/include.js"></script>                        </div>
+                <h5 class="lead"><strong><u>1/4" to 3/4" thick sheets</u></strong></h5>
+                <p class="lead">
+                    Lead panel shielding is typically used for Positron Emission Tomography (PET) suites. The assembly 
+                    consists of lead sheet laminated to 3/4” plywood and are individually fastened to the parent wall. 
+                    Panels butt against adjacent panels and seam strips are utilized at all joints to ensure a leak 
+                    free environment.
+                </p>       
+            </div>
+            <div class="col-lg-4 text-left">
+                <div class="title-container-blue">
+                    <h2 class="display-4" >Lead Brick</h2>
+                </div>
+                <img src="{% static 'images/radiation_icon.svg' %}" alt="" class="icon-background">
+                <div class="container">
+                    <div class="iactiveImg mb-4 mt-4" data-ii="25329"></div><script src="https://interactive-img.com/js/include.js"></script>                        </div>
+                <h5 class="lead"><strong><u>1" to 3" thick bricks</u></strong></h5>
+                <p class="lead">
+                    Lead Brick Specifications
+                    <ul class="lead">
+                        <li>Available in thickness of 1”, 1-1/2”, 2”, 2-1/2” and 3”</li>
+                        <li>Four edges tongue and grooved interlock</li>
+                        <li>Lead brick manufactured from ASTM-B29 pig lead alloyed as mentioned above</li>
+                    </ul>
+                </p>   
+            </div>
+        </div>
+    </div>
+</section>
+<section id="components">
+    <div class="full-width">
+        <div style="background:#11495F !important" class="jumbotron jumbotron-fluid m-0 ">
+            <div class="container text-white">
+                <div class="row">
+                    <div class="col-lg-6 text-left">
+                        <div class="title-container-yellow">
+                            <h2 class="display-4" >Lead Lined Wood Doors</h2>
+                        </div>
+                        <img src="{% static 'images/radiation_icon.svg' %}" alt="" class="icon-background">
+                        <div class="container">
+                            <div class="iactiveImg mb-4 mt-4" data-ii="25419"></div><script src="https://interactive-img.com/js/include.js"></script>                    <!--<img class="w-100 mb-4" src="{% static 'images/mri_room_type_galv.png' %}">-->
+                        </div>
+                        <button type="button" class="btn btn-warning mt-1 mb-4" data-toggle="modal" data-target="#pbDoorCalcModal">
+                            Weight Calculator <i class="fas fa-calculator"></i>
+                        </button>
+                        <p class="lead">
+                            Our lead lined solid core wood doors are manufactured utilizing two distinct techniques depending on the 
+                            thickness of shielding required. Lead between 1/32” thick to 1/4” thick is constructed by laminating two 
+                            pieces of uninterrupted lead sheets to either side of the wood core.
+                        </p>
+                        <p class="lead mb-4">
+                            Lead between 1/4” thick to 1/2”thick is constructed by laminating uninterrupted lead sheet between the 
+                            wood cores and securely fastened with lead covered bolts. In both door designs, all standard architectural 
+                            hardware are allowed and both doors are available in a range of wood or custom veneers.
+                        </p>
+                    </div>
+                    <div class="col-lg-6 text-left">
+                        <div class="title-container-yellow">
+                            <h2 class="display-4" >Lead Lined Metal Doors</h2>
+                        </div>
+                        <img src="{% static 'images/radiation_icon.svg' %}" alt="" class="icon-background">
+                        <div class="container">
+                            <div class="iactiveImg mb-4 mt-4" data-ii="25420"></div><script src="https://interactive-img.com/js/include.js"></script>                   
+                        </div>
+                        <p class="lead mb-4">
+                            Our lead lined hollow metal doors are available in 16, 14, or 12 gauge galvanneal. constructed 
+                            with an uninterrupted lead sheet ranging from 1/32” thick to 1/2” thick. 
+                            Fire rated options available in 20, 45, and 60 minutes.
+                        </p>
+
+                        <h2 class="lead custom-list-header"><u>Frame Anchor Types</u></h2>
+                        <ul class="lead custom-list">
+                            <li>Steel Stud Anchors</li>
+                            <li>Wood Stud Anchors</li>
+                            <li>Masonry Anchors</li>
+                            <li>Existing Masonry Anchors</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 text-left">
+                        <div class="title-container-yellow">
+                            <h2 class="display-4">Lead Lined Window</h2>
+                        </div>
+                        <img src="{% static 'images/radiation_icon.svg' %}" alt="" class="icon-background">
+                        <div class="container">
+                            <div class="iactiveImg mb-4 mt-4" data-ii="25336"></div><script src="https://interactive-img.com/js/include.js"></script> 
+                        </div>
+                        <button type="button" class="btn btn-warning mt-1 mb-4" data-toggle="modal" data-target="#pbGlassModal">
+                            Glass Data <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <p class="lead mb-4">
+                            Lead glazing is used in medical applications for observing equipment during X-ray, CT, and PET scans. 
+                            Lead glass protects doctors and staff from radiation with minimal discoloration of the glass or 
+                            deterioration in viewing quality.
+                        </p>
+                    </div>
+                    <div class="col-lg-6 text-left">
+                        <div class="title-container-yellow">
+                            <h2 class="display-4">Lead Lined Telescopic Window</h2>
+                        </div>
+                        <img src="{% static 'images/radiation_icon.svg' %}" alt="" class="icon-background">
+                        <div class="container">
+                            <div class="iactiveImg mb-4 mt-4" data-ii="25338"></div><script src="https://interactive-img.com/js/include.js"></script>                    <!--<img class="w-100 mb-4" src="{% static 'images/mri_room_type_galv.png' %}">-->
+                        </div>
+                        <p class="lead mb-4">
+                            The glass is made of high quality optical grade material, offering excellent radiation protection and high 
+                            light transmittance. The surfaces are hard, polished surfaces which offer greater scratch resistance 
+                            and superior visual clarity.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+ 
+<script>
+    var btn = $('#button');
+
+    $(window).scroll(function() {
+        if ($(window).scrollTop() > 800) {
+            btn.addClass('show');
+        } else {
+            btn.removeClass('show');
+        }
+    });
+
+    btn.on('click', function(e) {
+        e.preventDefault();
+        $('html, body').animate({scrollTop:0}, '800');
+    });
+</script>
+
+{% endblock %}
+

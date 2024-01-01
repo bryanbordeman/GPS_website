@@ -1,0 +1,250 @@
+{% load static %}
+
+<style>
+    
+    .carousel-indicators li {
+        display: none;
+      }
+   
+    
+    .carousel-control-next-icon,
+    .carousel-control-prev-icon {
+        position: absolute;
+        top: 300px;
+        z-index: 1;
+        width: 40px;
+        height: 40px;
+        filter: invert(50%);
+    }
+
+    .carousel-control-next,
+    .carousel-control-prev {
+     
+        z-index: 1;
+        width: 40px;
+        height: 40px;
+        
+    }
+
+  
+
+
+    .custom-list::before{
+        content:attr(aria-label);
+        font-size:110%;
+        margin-left:-25px;
+    }
+</style>
+
+
+<div class="modal fade" id="quenchExitModal" tabindex="-1" role="dialog" aria-labelledby="quenchExitModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Quench Vent <small class="text-muted"> | Exit Exhaust Options</small></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#roofExit" aria-controls="roofExit" role="tab" data-toggle="tab" aria-selected="true">Roof</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#wallExit" aria-controls="wallExit" role="tab" data-toggle="tab">Wall</a>
+                    </li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content mt-3">
+                    <div role="tabpanel" class="tab-pane active" id="roofExit">
+                        <div class="container">
+                            <div id="carouselIndicatorsRoof" class="carousel carousel-fade" data-ride="carousel" data-interval="false">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carouselIndicatorsRoof" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carouselIndicatorsRoof" data-slide-to="1"></li>
+                                    <li data-target="#carouselIndicatorsRoof" data-slide-to="2"></li>
+                                </ol>
+                    
+                                <div class="carousel-item active">
+                                    <div class="d-block w-100" alt="First slide">
+                                        <h3 class="card-title" id="title-container">Weather Cap</h3>
+                                        <div class="iactiveImg mb-4" data-ii="26281"></div><script src="https://interactive-img.com/js/include.js"></script>
+                                        <ul class="lead custom-list" aria-label="Approved OEM's">
+                                            <li>Siemens</li>
+                                            <li>Philips</li>
+                                            <li>Hitachi</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="d-block w-100" alt="Second slide">
+                                        <h3 class="card-title" id="title-container">Gooseneck</h3>
+                                        <div class="iactiveImg" data-ii="26394"></div><script src="https://interactive-img.com/js/include.js"></script>
+                                        <ul class="lead custom-list" aria-label="Approved OEM's">
+                                            <li>Philips</li>
+                                            <li>Hitachi</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="d-block w-100" alt="Third slide">
+                                        <h3 class="card-title" id="title-container">Spout</h3>
+                                        <div class="iactiveImg" data-ii="26479"></div><script src="https://interactive-img.com/js/include.js"></script>
+                                        <ul class="lead custom-list" aria-label="Approved OEM's">
+                                            <li>GE</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselIndicatorsRoof" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselIndicatorsRoof" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                
+
+                 <!-- Tab panes -->
+                
+                    <div role="tabpanel" class="tab-pane" id="wallExit">
+                        <div class="container">
+                            <div id="carouselIndicatorsWall" class="carousel carousel-fade" data-ride="carousel" data-interval="false">
+                                <ol class="carousel-indicators">
+                                    <li data-target="#carouselIndicatorsWall" data-slide-to="3" class="active"></li>
+                                    <li data-target="#carouselIndicatorsWall" data-slide-to="4"></li>
+                                    <li data-target="#carouselIndicatorsWall" data-slide-to="5"></li>
+                                </ol>
+                    
+                                <div class="carousel-item active">
+                                    <div class="d-block w-100" alt="Fouth slide">
+                                        <h3 class="card-title" id="title-container">Louver</h3>
+                                        <div class="iactiveImg" data-ii="26487"></div><script src="https://interactive-img.com/js/include.js"></script>
+                                        <ul class="lead custom-list" aria-label="Approved OEM's">
+                                            <li>Philips</li>
+                                            <li>Hitachi</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="d-block w-100" alt="Fifth slide">
+                                        <h3 class="card-title" id="title-container">Mailbox</h3>
+                                        <div class="iactiveImg" data-ii="26493"></div><script src="https://interactive-img.com/js/include.js"></script>
+                                        <ul class="lead custom-list" aria-label="Approved OEM's">
+                                            <li>Siemens</li>
+                                            <li>Hitachi</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="d-block w-100" alt="sixth slide">
+                                        <h3 class="card-title" id="title-container">Wall Spout</h3>
+                                        <div class="iactiveImg" data-ii="26519"></div><script src="https://interactive-img.com/js/include.js"></script>
+                                        <ul class="lead custom-list" aria-label="Approved OEM's">
+                                            <li>Siemens</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselIndicatorsWall" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselIndicatorsWall" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+                <!-- <div class="tab-content mt-3">
+                    <div role="tabpanel" class="tab-pane active" id="roofExit">
+                        <div class="container">
+                            <h3 class="card-title" id="title-container">Roof Exits</h3>
+
+                            <div class="iactiveImg mb-4" data-ii="26281"></div><script src="https://interactive-img.com/js/include.js"></script>
+                            <ul class="lead custom-list" aria-label="Weather Cap">
+                                <li>Siemens</li>
+                                <li>Philips</li>
+                                <li>Hitachi</li>
+                            </ul>
+                            <hr>
+                            <div class="iactiveImg" data-ii="26394"></div><script src="https://interactive-img.com/js/include.js"></script>
+                            <ul class="lead custom-list" aria-label="Gooseneck">
+                                <li>Philips</li>
+                                <li>Hitachi</li>
+                            </ul>
+                            <hr>
+                            <div class="iactiveImg" data-ii="26479"></div><script src="https://interactive-img.com/js/include.js"></script>
+                            <ul class="lead custom-list" aria-label="Spout">
+                                <li>GE</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="wallExit">
+                        <div class="container">
+                            <h3 class="card-title" id="title-container">Wall Exits</h3>
+
+                            <div class="iactiveImg" data-ii="26487"></div><script src="https://interactive-img.com/js/include.js"></script>
+                            <ul class="lead custom-list" aria-label="Louver">
+                                <li>Philips</li>
+                                <li>Hitachi</li>
+                            </ul>
+                            <hr>
+                            <div class="iactiveImg" data-ii="26493"></div><script src="https://interactive-img.com/js/include.js"></script>
+                            <ul class="lead custom-list" aria-label="Mailbox">
+                                <li>Siemens</li>
+                                <li>Hitachi</li>
+                            </ul>
+                            <hr>
+                        </div>
+
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script>
+    $('.carousel').on('touchstart', function(event){
+    const xClick = event.originalEvent.touches[0].pageX;
+    $(this).one('touchmove', function(event){
+    const xMove = event.originalEvent.touches[0].pageX;
+    const sensitivityInPx = 5;
+
+    if( Math.floor(xClick - xMove) > sensitivityInPx ){
+        $(this).carousel('next');
+    }
+    else if( Math.floor(xClick - xMove) < -sensitivityInPx ){
+        $(this).carousel('prev');
+    }
+    });
+    $(this).on('touchend', function(){
+    $(this).off('touchmove');
+    });
+    });
+</script>
