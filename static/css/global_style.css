@@ -32,7 +32,6 @@
 
 .bg-green {
   background:#D3FF4A !important; 
-  
 }
 
 .section-button{
@@ -254,9 +253,3 @@ width: 0%;
 left: 50%;
 }
 /* animated burger navbar*/
-
-.btn-secondary {
-  background-color: #D3FF4A !important;
-  color: black !important;
-}
-

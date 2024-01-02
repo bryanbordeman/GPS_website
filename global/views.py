@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-# from .forms import RequestForm
+from .forms import RequestForm
 from django.contrib import messages
 from django.core.mail import send_mail, BadHeaderError, EmailMessage
 from django.conf import settings
@@ -59,7 +59,7 @@ def request_quote(request):
             email_message = f'Name = {first_name} {last_name}\nEmail = {email}\nPhone = {phone}\nMessage = {description}\n'
 
             try:
-                send_mail(f'Global Shielding Website {first_name} {last_name}', email_message, settings.EMAIL_HOST_USER, ['sales@global-shielding.com'], fail_silently=False)
+                send_mail(f'Global Partners in Shielding, Inc. Website {first_name} {last_name}', email_message, settings.EMAIL_HOST_USER, ['inquiry@shieldingsystems.com'], fail_silently=False)
                 form.save()
                 messages.success(request, 'Request was successfully sent')
                 return redirect('home') #need to redirect with id to project profile
