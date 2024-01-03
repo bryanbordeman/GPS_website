@@ -1,17 +1,17 @@
 from django.urls import path
 from . import views
 
-# from .sitemap import  StaticSitemap
+from .sitemap import StaticSitemap
 from django.contrib.sitemaps.views import sitemap
-# from django.conf.urls import url
+from django.urls import re_path
 
-# sitemaps = {
-#  'pages': StaticSitemap,
-# }
+sitemaps = {
+    'pages': StaticSitemap,
+}
 
 urlpatterns = [
-    # path("robots.txt", views.robots_txt),
-    # url(r'^sitemap.xml$', sitemap, {'sitemaps': sitemaps}),
+    path("robots.txt", views.robots_txt),
+    re_path(r'^sitemap.xml$', sitemap, {'sitemaps': sitemaps}),
     path('', views.home, name="home"),
     path('rf_shielding/', views.rf_shielding, name="rf_shielding"),
     path('rf_chambers/', views.rf_chambers, name="rf_chambers"),

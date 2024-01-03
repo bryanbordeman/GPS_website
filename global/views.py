@@ -6,23 +6,24 @@ from django.conf import settings
 
 # quench calculator 
 from django.http import HttpResponse
-# from .ge_quench_vent_calculator import GEQuench
-# from .hitachi_quench_vent_calculator import HitachiQuench
-# from .radiation_shielding_swing_door_calculator_website import Door
-# import json
+from .scripts.ge_quench_vent_calculator import GEQuench
+from .scripts.hitachi_quench_vent_calculator import HitachiQuench
+from .scripts.radiation_shielding_swing_door_calculator_website import Door
+import json
 
 from django.shortcuts import render
 from django.views.decorators.http import require_GET
 
 
-# @require_GET
-# def robots_txt(request):
-#     lines = [
-#         "User-Agent: *",
-#         "Allow: /",
-#         "Sitemap: http://www.global-shielding.com/sitemap.xml",
-#     ]
-#     return HttpResponse("\n".join(lines), content_type="text/plain")
+@require_GET
+def robots_txt(request):
+    lines = [
+        "User-Agent: *",
+        "Allow: /",
+        # "Sitemap: http://www.global-shielding.com/sitemap.xml",
+        "Sitemap: http://127.0.0.1:8000/sitemap.xml",
+    ]
+    return HttpResponse("\n".join(lines), content_type="text/plain")
 
 def home(request):
     page_title = 'Home'
